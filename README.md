@@ -60,14 +60,14 @@ Figma: https://www.figma.com/file/JpAWH1FYorwIhAAy87n7l4/Goki.net?node-id=0%3A1&
 
 ```mermaid
 erDiagram
-users ||--o| profiles : f
-users ||--o{ fight : f
-users ||--o{ posts : f
-users ||--o{ likes : f
-users ||--o{ support : f
-fight ||--o{ support : f
-users ||--o{ map : f
-posts ||--o{ likes : f
+users ||--o| profiles : has_one
+users ||--o{ fight : create
+users ||--o{ posts : create
+users ||--o{ likes : many_to_many
+users ||--o{ support : many_to_many
+fight ||--o{ support : many_to_many
+users ||--o{ map : create
+posts ||--o{ likes : many_to_many
 
   users {
     int id PK
