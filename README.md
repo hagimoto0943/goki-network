@@ -56,6 +56,73 @@
 
 Figma: https://www.figma.com/file/JpAWH1FYorwIhAAy87n7l4/Goki.net?node-id=0%3A1&t=zhS7NEvNysyKEKCO-1
 
+## ER 図
+
+```mermaid
+erDiagram
+users ||--o| profiles : f
+users ||--o{ fight : f
+users ||--o{ posts : f
+users ||--o{ likes : f
+users ||--o{ support : f
+fight ||--o{ support : f
+users ||--o{ map : f
+posts ||--o{ likes : f
+
+  users {
+    int id PK
+    string name
+    string email
+    string crypted_password
+    string salt
+    datetime created_at
+    datetime updated_at
+  }
+  profiles {
+    int id PK
+    string avatar
+    int house_age
+    int house_floor
+    string house_structure
+    string favorite_item
+    int user_id FK
+  }
+  posts {
+    int id PK
+    string title
+    string body
+    string thumbnail
+    string item
+    datetime created_at
+    datetime updated_at
+    int user_id FK
+  }
+  fight {
+    int id PK
+    boolean is_fight
+    datetime created_at
+    datetime updated_at
+    int user_id FK
+  }
+  likes {
+    int id PK
+    int user_id FK
+    int post_id FK
+  }
+
+  support{
+    int id PK
+    int user_id FK
+    int fight_id FK
+  }
+  map {
+    int id PK
+    int user_id FK
+  }
+
+
+```
+
 ## なぜこのサービスを作りたいのか？
 
 ひとり暮らしのゴキブリ対策は孤独で辛いものです。一人でゴキブリを退治するのはとても怖いと思います。しかし私は、誰かと一緒にいたり、同じくゴキブリと戦っている人がいると、少し恐怖が和らぎ、いつもより強気になれます。このような経験から、このサービスを考えました。
