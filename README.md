@@ -66,7 +66,7 @@ users ||--o{ posts : create
 users ||--o{ likes : many_to_many
 users ||--o{ support : many_to_many
 fight ||--o{ support : many_to_many
-users ||--o{ map : create
+users ||--o{ find_spot : create
 posts ||--o{ likes : many_to_many
 
   users {
@@ -92,14 +92,14 @@ posts ||--o{ likes : many_to_many
     string title
     string body
     string thumbnail
-    string item
+    string use_tool
     datetime created_at
     datetime updated_at
     int user_id FK
   }
   fight {
     int id PK
-    boolean is_fight
+    int status
     datetime created_at
     datetime updated_at
     int user_id FK
@@ -115,8 +115,9 @@ posts ||--o{ likes : many_to_many
     int user_id FK
     int fight_id FK
   }
-  map {
+  find_spot {
     int id PK
+    int post_code
     int user_id FK
   }
 
