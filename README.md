@@ -56,6 +56,87 @@
 
 Figma: https://www.figma.com/file/JpAWH1FYorwIhAAy87n7l4/Goki.net?node-id=0%3A1&t=zhS7NEvNysyKEKCO-1
 
+## ER 図
+
+```mermaid
+erDiagram
+users ||--o{ fights : create
+users ||--o{ posts : create
+users ||--o{ likes : many_to_many
+users ||--o{ supports : many_to_many
+fights ||--o{ supports : many_to_many
+users ||--o{ find_spots : create
+posts ||--o{ likes : many_to_many
+tools || -- o{ profiles :  reference
+posts || --o{ post_tool : many_to_many
+tools || --o{ post_tool : many_to_many
+users ||--o| profiles : has_one
+
+  users {
+    int id PK
+    string name
+    string email
+    string crypted_password
+    string salt
+    datetime created_at
+    datetime updated_at
+  }
+  fights {
+    int id PK
+    int user_id FK
+    int status
+    datetime created_at
+    datetime updated_at
+  }
+  profiles {
+    int id PK
+    int user_id FK
+    int tool_id FK
+    string avatar
+    int house_age
+    int house_floor
+    string house_structure
+  }
+  posts {
+    int id PK
+    int user_id FK
+    string title
+    string body
+    string thumbnail
+    datetime created_at
+    datetime updated_at
+  }
+
+  likes {
+    int id PK
+    int user_id FK
+    int post_id FK
+  }
+
+  supports {
+    int id PK
+    int user_id FK
+    int fight_id FK
+  }
+  find_spots {
+    int id PK
+    int user_id FK
+    int post_code
+  }
+  tools {
+    int id PK
+    string name
+    string description
+  }
+  post_tool {
+    int id  PK
+    int post_id FK
+    int tool_id FK
+  }
+
+
+```
+
 ## なぜこのサービスを作りたいのか？
 
 ひとり暮らしのゴキブリ対策は孤独で辛いものです。一人でゴキブリを退治するのはとても怖いと思います。しかし私は、誰かと一緒にいたり、同じくゴキブリと戦っている人がいると、少し恐怖が和らぎ、いつもより強気になれます。このような経験から、このサービスを考えました。
