@@ -60,14 +60,17 @@ Figma: https://www.figma.com/file/JpAWH1FYorwIhAAy87n7l4/Goki.net?node-id=0%3A1&
 
 ```mermaid
 erDiagram
-users ||--o| profiles : has_one
-users ||--o{ fight : create
+users ||--o{ fights : create
 users ||--o{ posts : create
 users ||--o{ likes : many_to_many
-users ||--o{ support : many_to_many
-fight ||--o{ support : many_to_many
-users ||--o{ find_spot : create
+users ||--o{ supports : many_to_many
+fights ||--o{ supports : many_to_many
+users ||--o{ find_spots : create
 posts ||--o{ likes : many_to_many
+tools || -- o{ profiles :  reference
+posts || --o{ post_tool : many_to_many
+tools || --o{ post_tool : many_to_many
+users ||--o| profiles : has_one
 
   users {
     int id PK
@@ -78,47 +81,58 @@ posts ||--o{ likes : many_to_many
     datetime created_at
     datetime updated_at
   }
+  fights {
+    int id PK
+    int user_id FK
+    int status
+    datetime created_at
+    datetime updated_at
+  }
   profiles {
     int id PK
+    int user_id FK
+    int tool_id FK
     string avatar
     int house_age
     int house_floor
     string house_structure
-    string favorite_item
-    int user_id FK
   }
   posts {
     int id PK
+    int user_id FK
+    int tool_id FK
     string title
     string body
     string thumbnail
-    string use_tool
     datetime created_at
     datetime updated_at
-    int user_id FK
   }
-  fight {
-    int id PK
-    int status
-    datetime created_at
-    datetime updated_at
-    int user_id FK
-  }
+
   likes {
     int id PK
     int user_id FK
     int post_id FK
   }
 
-  support{
+  supports {
     int id PK
     int user_id FK
     int fight_id FK
   }
-  find_spot {
+  find_spots {
     int id PK
-    int post_code
     int user_id FK
+    int post_code
+  }
+  tools {
+    int id PK
+    string name
+    string description
+  }
+  post_tool {
+    int id  PK
+    int post_id FK
+    int tool_id FK
   }
 
 
