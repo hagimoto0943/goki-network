@@ -100,7 +100,6 @@ users ||--o| profiles : has_one
   posts {
     int id PK
     int user_id FK
-    int tool_id FK
     string title
     string body
     string thumbnail
