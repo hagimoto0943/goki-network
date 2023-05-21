@@ -1,0 +1,20 @@
+databases:
+  - name: goki_net
+    databaseName: goki_net
+    user: root
+    region: singapore
+
+services:
+  - type: web
+    name: goki-net
+    env: ruby
+    region: singapore
+    buildCommand: "/bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: <%= ENV['DATABASE_URL'] %>
+        fromDatabase:
+          name: goki_net
+          property: connectionString
+      - key: <%= ENV['RAILS_MASTER_KEY'] %>
+        sync: false
