@@ -9,7 +9,7 @@ services:
     name: goki-net
     env: ruby
     region: singapore
-    buildCommand: "。/bin/render-build.sh"
+    buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: <%= ENV['DATABASE_URL'] %>
