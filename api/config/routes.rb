@@ -7,6 +7,14 @@ Rails.application.routes.draw do
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
 
-  resources :users, only: %i[new create]
+  post 'guest_login', to: 'user_sessions#guest_login'
 
+  get 'fights', to: 'fights#index'
+  post 'fight', to: 'fights#create'
+  patch 'fight', to: 'fights#update'
+
+  resources :users, only: %i[new create]
+  resources :fights, only: [:index] do
+    resource :supports, only: %i[create destroy]
+  end
 end
