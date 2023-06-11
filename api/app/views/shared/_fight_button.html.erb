@@ -1,0 +1,9 @@
+<% if current_user.fights.where(status: 1).present? %>
+  <%= link_to fight_path, data: { "turbo-method": :patch } do %>
+    <button class="flex mx-auto mt-20 text-white bg-yellow-500 border-0 py-2 px-8focus:outline-none hover:bg-yellow-600 rounded text-lg">退治完了</button>
+  <% end %>
+<% else %>
+  <%= link_to fight_path, data: { "turbo-method": :post } do %>
+    <button class="flex mx-auto mt-20 text-white bg-yellow-500 border-0 py-2 px-8focus:outline-none hover:bg-yellow-600 rounded text-lg">退治開始</button>
+  <% end %>
+<% end %>

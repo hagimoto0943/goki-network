@@ -9,6 +9,12 @@ Rails.application.routes.draw do
 
   post 'guest_login', to: 'user_sessions#guest_login'
 
-  resources :users, only: %i[new create]
+  get 'fights', to: 'fights#index'
+  post 'fight', to: 'fights#create'
+  patch 'fight', to: 'fights#update'
 
+  resources :users, only: %i[new create]
+  resources :fights, only: [:index] do
+    resource :supports, only: %i[create destroy]
+  end
 end
