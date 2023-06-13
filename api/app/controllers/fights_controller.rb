@@ -1,15 +1,18 @@
 class FightsController < ApplicationController
   def index
-    @fights = Fight.all
+    @fights = Fight.order(created_at: :desc)
   end
 
   def create
     @fight = current_user.fights.new
-    @fights = Fight.where(status: 1)
-    if @fight.save
-      redirect_to fights_path
-    else
-      render :index
+    respond_to do |format|
+      if @fight.save
+        format.html { redirect_to fights_path }
+        format.turbo_stream
+      else
+        @fights = Fight.order(created_at: :desc)
+        format.html { render :index }
+      end
     end
   end
 
