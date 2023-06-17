@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  mount_uploader :thumbnail, ThumbnailUploader
   belongs_to :user
 
   validates :title, presence: true, length: {maximum: 255}
