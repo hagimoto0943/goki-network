@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   patch 'fight', to: 'fights#update'
 
   resources :users, only: %i[new create]
-  resources :posts, only: %i[index]
+  resources :posts, only: %i[index new create]
   resources :fights, only: [:index] do
     resource :supports, only: %i[create destroy]
   end
