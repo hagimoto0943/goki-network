@@ -3,3 +3,4 @@
 <%= image_tag post.thumbnail.url %>
 <p><%=post.user.name%></p>
 <p><%=post.created_at%></p>
+<%= render 'like_button', post: post%>
