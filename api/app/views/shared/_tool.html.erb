@@ -1,0 +1,7 @@
+<% @tools.first(10).each do |tool| %>
+<div class="list-group">
+  <%= image_tag (tool['smallImageUrls'][0]) %>
+  <%= link_to tool.name, "#{tool.url}" %>
+  <%= number_with_delimiter(tool.code) %>円
+</div>
+<% end %>

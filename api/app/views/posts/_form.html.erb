@@ -8,9 +8,17 @@
     <%= f.text_area :body, rows: 10 %>
   </div>
   <div class="form-group">
+    <%= f.fields_for :tools do |tool| %>
+
+    <% end %>
+  </div>
+  <div class="form-group">
     <%= f.label :thumbnail %>
     <%= f.file_field :thumbnail, accept: 'image/*', onchange: 'previewImage(preview)' %>
     <%= f.hidden_field :thumbnail_cache %>
+  </div>
+  <div class="mt-3 mb-3">
+    <%= image_tag post.thumbnail.url, id: 'preview', size: '300x200' %>
   </div>
   <%= f.submit %>
 <% end %>

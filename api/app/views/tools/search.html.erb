@@ -1,0 +1,12 @@
+<h1>製品名を入力して検索</h1>
+<div class="search-box">
+    <%= form_with url: tools_search_path, method: :get, local: true do |f| %>
+    <div class="form-group">
+        <%= f.text_field :keyword, value: params[:keyword], class: "form-control" %>
+        <%= f.submit '製品名を検索', class: "form-control btn btn-success" %>
+    </div>
+    <% end %>
+<% if @tools.present? %>
+  <%= render 'shared/tool' %>
+<% end %>
+</div>
