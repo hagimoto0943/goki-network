@@ -127,6 +127,7 @@ users ||--o| profiles : has_one
     int id PK
     string name
     string description
+    string price
   }
   post_tool {
     int id  PK
