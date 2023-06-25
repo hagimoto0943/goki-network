@@ -56,6 +56,8 @@ gem 'tailwindcss-rails'
 gem 'cssbundling-rails'
 # 画像アップロード機能実装に使用
 gem 'carrierwave'
+# 楽天APIの使用
+gem 'rakuten_web_service'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
