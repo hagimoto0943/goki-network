@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  tool: one
+  avatar: MyString
+  house_age: 1
+  house_floor: 1
+  house_structure: 1
+
+two:
+  user: two
+  tool: two
+  avatar: MyString
+  house_age: 1
+  house_floor: 1
+  house_structure: 1

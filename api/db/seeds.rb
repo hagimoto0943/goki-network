@@ -11,6 +11,7 @@ end
   Post.create(
     user: User.offset(rand(User.count)).first,
     title: "タイトル#{index}",
-    body: "本文#{index}"
+    body: "本文#{index}",
+    post_types: 0
   )
 end

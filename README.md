@@ -95,7 +95,7 @@ users ||--o| profiles : has_one
     string avatar
     int house_age
     int house_floor
-    string house_structure
+    int house_structure
   }
   posts {
     int id PK
