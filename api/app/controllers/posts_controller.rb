@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 
   def new
     @post =  Post.new
+    @tool =  Tool.new
   end
 
   def show

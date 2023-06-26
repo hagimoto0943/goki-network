@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'tools/search'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -15,7 +16,7 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[new create]
   resources :posts, only: %i[index new create] do
-    resource :likes, only: [:create, :destroy]
+    resource :likes, only: %i[create destroy]
   end
   resources :fights, only: [:index] do
     resource :supports, only: %i[create destroy]
