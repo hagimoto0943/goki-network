@@ -5,15 +5,7 @@
     <span class="text-sm text-gray-500 dark:text-gray-400"><%= fight.user.created_at %></span>
     <div class="flex mt-4 space-x-3 md:mt-6">
       <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><%= fight.status %></a>
-      <% if fight.support?(current_user) %>
-        <%= link_to fight_supports_path(fight.id), data: { "turbo-method": :delete } do %>
-          <button>応援解除</button>
-        <% end %>
-      <% else %>
-        <%= link_to fight_supports_path(fight.id), data: { "turbo-method": :post } do %>
-          <button>応援</button>
-        <% end %>
-      <% end %>
+        <%= render 'fights/support_button', {fight: fight} %>
     </div>
   </div>
 </div>

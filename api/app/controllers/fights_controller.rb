@@ -5,18 +5,19 @@ class FightsController < ApplicationController
 
   def create
     @fight = current_user.fights.new
-    respond_to do |format|
-      if @fight.save
-        format.html { redirect_to fights_path }
-        format.turbo_stream
-      else
-        @fights = Fight.order(created_at: :desc)
-        format.html { render :index }
-      end
+    if @fight.save
+      redirect_to fights_path
+    else
+      @fights = Fight.order(created_at: :desc)
+      format.html { render :index }
     end
   end
 
   def update
-    current_user.fights.find_by(status: 1).toggle_status!
+    @fight = current_user.fights.find_by(status: 1)
+    @fights = Fight.order(created_at: :desc)
+    if @fight.toggle_status!
+      redirect_to fights_path
+    end
   end
 end

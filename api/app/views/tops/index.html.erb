@@ -1,78 +1,78 @@
-<section class="mx-10 text-gray-600 body-font">
-  <div class="container mx-auto flex px-5 pt-24 md:flex-row flex-col items-center">
-    <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-      <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-yellow-500">Goki.netへようこそ！
+  <section class="mx-10 text-gray-600 body-font">
+    <div class="container mx-auto flex px-5 pt-24 md:flex-row flex-col items-center">
+      <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+        <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-yellow-500">Goki.netへようこそ！
+        </h1>
+        <h2 class="mb-8">仲間とリアルタイムで繋がり、ゴキブリを克服しましょう。</h2>
+        <div class="flex justify-center">
+          <%= link_to guest_login_path, data: { "turbo-method": :post } do %>
+            <button class="inline-flex text-white bg-yellow-500 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-600 rounded text-lg">はじめる</button>
+          <% end %>
+        </div>
+      </div>
+      <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+        <%= image_tag 'goki_2.png'%>
+      </div>
+    </div>
+  </section>
+  <section class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font text-center text-gray-900 mb-20">ゴキブリを克服するための様々な機能があります
       </h1>
-      <h2 class="mb-8">仲間とリアルタイムで繋がり、ゴキブリを克服しましょう。</h2>
-      <div class="flex justify-center">
-        <%= link_to guest_login_path, data: { "turbo-method": :post } do %>
-          <button class="inline-flex text-white bg-yellow-500 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-600 rounded text-lg">はじめる</button>
-        <% end %>
-      </div>
-    </div>
-    <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-      <%= image_tag 'goki_2.png'%>
-    </div>
-  </div>
-</section>
-<section class="text-gray-600 body-font">
-  <div class="container px-5 py-24 mx-auto">
-    <h1 class="sm:text-3xl text-2xl font-medium title-font text-center text-gray-900 mb-20">ゴキブリを克服するための様々な機能があります
-    </h1>
-    <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
-      <div class="p-4 md:w-1/3 flex">
-        <div class="w-12 h-12 inline-flex items-center justify-center rounded-full mb-4 flex-shrink-0">
-          <%= image_tag 'goki_3.png' %>
+      <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
+        <div class="p-4 md:w-1/3 flex">
+          <div class="w-12 h-12 inline-flex items-center justify-center rounded-full mb-4 flex-shrink-0">
+            <%= image_tag 'goki_3.png' %>
+          </div>
+          <div class="flex-grow pl-6">
+            <h2 class="text-gray-900 text-xl title-font font-medium mb-2">ゴキブリ対策をシェアしましょう</h2>
+            <p class="leading-relaxed text-base">あなたが普段しているゴキブリの予防、駆除の方法や、使用している対策グッズを皆でシェアしましょう。</p>
+            <%= link_to posts_path do %>
+              <button class="mt-3 text-yellow-500 inline-flex items-center">みんなのゴキブリ対策を見てみる
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </button>
+            <% end %>
+          </div>
         </div>
-        <div class="flex-grow pl-6">
-          <h2 class="text-gray-900 text-xl title-font font-medium mb-2">ゴキブリ対策をシェアしましょう</h2>
-          <p class="leading-relaxed text-base">あなたが普段しているゴキブリの予防、駆除の方法や、使用している対策グッズを皆でシェアしましょう。</p>
-          <%= link_to posts_path do %>
-            <button class="mt-3 text-yellow-500 inline-flex items-center">みんなのゴキブリ対策を見てみる
-              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                <path d="M5 12h14M12 5l7 7-7 7"></path>
-              </svg>
-            </button>
-          <% end %>
-        </div>
-      </div>
-      <div class="p-4 md:w-1/3 flex">
-        <div class="w-12 h-12 inline-flex items-center justify-center rounded-full bg-yellow-100 text-yellow-500 mb-4 flex-shrink-0">
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
-            <circle cx="6" cy="6" r="3"></circle>
-            <circle cx="6" cy="18" r="3"></circle>
-            <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
-          </svg>
-        </div>
-        <div class="flex-grow pl-6">
-          <h2 class="text-gray-900 text-xl title-font font-medium mb-2">ゴキブリを駆除している仲間とリアルタイムで繋がりましょう</h2>
-          <p class="leading-relaxed text-base">ゴキブリを発見したら、すぐに「駆除中ボタン」を押しましょう。駆除中の仲間と繋がることでゴキブリへの恐怖心が和らぎます。</p>
-          <%= link_to fights_path do%>
-            <button class="mt-3 text-yellow-500 inline-flex items-center">駆除中の仲間を見る
-              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                <path d="M5 12h14M12 5l7 7-7 7"></path>
-              </svg>
-            </button>
-          <% end %>
-        </div>
-      </div>
-      <div class="p-4 md:w-1/3 flex">
-        <div class="w-12 h-12 inline-flex items-center justify-center rounded-full bg-yellow-100 text-yellow-500 mb-4 flex-shrink-0">
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
-            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-            <circle cx="12" cy="7" r="4"></circle>
-          </svg>
-        </div>
-        <div class="flex-grow pl-6">
-          <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Neptune</h2>
-          <p class="leading-relaxed text-base">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, ramps microdosing banh mi pug VHS try-hard ugh iceland kickstarter tumblr live-edge tilde.</p>
-          <a class="mt-3 text-yellow-500 inline-flex items-center">Learn More
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
+        <div class="p-4 md:w-1/3 flex">
+          <div class="w-12 h-12 inline-flex items-center justify-center rounded-full bg-yellow-100 text-yellow-500 mb-4 flex-shrink-0">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+              <circle cx="6" cy="6" r="3"></circle>
+              <circle cx="6" cy="18" r="3"></circle>
+              <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
             </svg>
-          </a>
+          </div>
+          <div class="flex-grow pl-6">
+            <h2 class="text-gray-900 text-xl title-font font-medium mb-2">ゴキブリを駆除している仲間とリアルタイムで繋がりましょう</h2>
+            <p class="leading-relaxed text-base">ゴキブリを発見したら、すぐに「駆除中ボタン」を押しましょう。駆除中の仲間と繋がることでゴキブリへの恐怖心が和らぎます。</p>
+            <%= link_to fights_path do%>
+              <button class="mt-3 text-yellow-500 inline-flex items-center">駆除中の仲間を見る
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </button>
+            <% end %>
+          </div>
+        </div>
+        <div class="p-4 md:w-1/3 flex">
+          <div class="w-12 h-12 inline-flex items-center justify-center rounded-full bg-yellow-100 text-yellow-500 mb-4 flex-shrink-0">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <div class="flex-grow pl-6">
+            <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Neptune</h2>
+            <p class="leading-relaxed text-base">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine, ramps microdosing banh mi pug VHS try-hard ugh iceland kickstarter tumblr live-edge tilde.</p>
+            <a class="mt-3 text-yellow-500 inline-flex items-center">Learn More
+              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>

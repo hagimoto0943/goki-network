@@ -1,0 +1,14 @@
+ja:
+  activerecord:
+    models:
+      user: "ユーザー"
+      post: "ゴキブリ対策"
+      fight: "退治中"
+      profile: "プロフィール"
+      tool: "ゴキブリ対策道具"
+    attributes:
+      user:
+        name: "ユーザー名"
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "パスワード確認"

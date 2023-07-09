@@ -7,5 +7,6 @@
       <%= link_to "ゴキブリ対策", posts_path, class: "mr-5 hover:text-gray-900"%>
     </nav>
     <%= link_to 'ログアウト', logout_path, class: 'inline-flex items-center text-white bg-yellow-500 border-0 py-1 px-3 focus:outline-none hover:bg-yellow-600 rounded text-base mt-4 mx-3 md:mt-0', data: { turbo_method: :delete } %>
+    <p><%= current_user.name %></p>
   </div>
 </header>
