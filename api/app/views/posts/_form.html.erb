@@ -9,8 +9,13 @@
   </div>
   <div class="form-group">
     <%= f.fields_for :tools do |tool| %>
-
     <% end %>
+  </div>
+  <div class="form-group">
+    <%= f.radio_button :post_types, Post.post_types.key(0), checked: "checked" %>
+    <%= f.label :post_types, Post.post_types_i18n[:destruction] %>
+    <%= f.radio_button :post_types, Post.post_types.key(1) %>
+    <%= f.label :post_types, Post.post_types_i18n[:prevention] %>
   </div>
   <div class="form-group">
     <%= f.label :thumbnail %>
