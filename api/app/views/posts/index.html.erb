@@ -1,10 +1,11 @@
 <section class="text-gray-600 body-font">
+
   <div class="container px-5 py-24 mx-auto">
     <div class="flex flex-wrap -m-4">
-      <% if @posts.present? %>
-	      <%= render @posts %>
+      <% if current_user.present? && @posts.present? %>
+        <%= render @posts %>
       <% else %>
-      	<p>ゴキブリ対策が存在しません</p>
+        <p>ゴキブリ対策が存在しません</p>
       <% end %>
     </div>
   </div>

@@ -1,0 +1,6 @@
+ja:
+  enums:
+    post:
+      post_types:
+        destruction: "駆除"
+        prevention: "予防"

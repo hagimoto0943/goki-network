@@ -2,6 +2,7 @@
   "name": "app",
   "private": "true",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.4.0",
     "autoprefixer": "^10.4.14",
     "esbuild": "^0.18.0",
     "postcss": "^8.4.24",

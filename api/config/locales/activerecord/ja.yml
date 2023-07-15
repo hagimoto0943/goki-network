@@ -12,3 +12,13 @@ ja:
         email: "メールアドレス"
         password: "パスワード"
         password_confirmation: "パスワード確認"
+      post:
+        title: "タイトル"
+        body: "本文"
+        thumbnail: "画像"
+        post_types: "投稿タイプ"
+  enums:
+    post:
+      post_types:
+        destruction: "駆除"
+        prevention: "予防"
