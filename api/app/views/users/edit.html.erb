@@ -1,0 +1,35 @@
+<%= form_with model: @user, local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="form-group">
+    <%= f.fields_for :profile, @user.profile do |pf| %>
+      <div class="form-group">
+        <%= pf.label :house_age %>
+        <%= pf.number_field :house_age %>
+      </div>
+      <div class="form-group">
+        <%= pf.label :house_floor %>
+        <%= pf.number_field :house_floor %>
+      </div>
+      <div class="form-group">
+        <%= pf.radio_button :house_structure, Profile.house_structures.key(0), checked: "checked" %>
+        <%= pf.label :house_structure, Profile.house_structures_i18n[:wooden] %>
+        <%= pf.radio_button :house_structure, Profile.house_structures.key(1) %>
+        <%= pf.label :house_structure, Profile.house_structures_i18n[:reinforced_concrete] %>
+        <%= pf.radio_button :house_structure, Profile.house_structures.key(2) %>
+        <%= pf.label :house_structure, Profile.house_structures_i18n[:steel_frame] %>
+      </div>
+      <div class="form-group">
+        <%= pf.label :avatar %>
+        <%= pf.file_field :avatar, accept: 'image/*', onchange: 'previewImage(preview)' %>
+        <%= pf.hidden_field :avatar_cache %>
+      </div>
+      <div class="mt-3 mb-3">
+        <%= image_tag @user.profile.avatar.url, id: 'preview', size: '300x200' %>
+      </div>
+    <% end %>
+  </div>
+  <%= f.submit %>
+<% end %>

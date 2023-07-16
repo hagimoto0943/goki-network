@@ -1,11 +1,13 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
 
-  has_one :profiles, dependent: :destroy
+  has_one :profile, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :fights, dependent: :destroy
   has_many :supports, dependent: :destroy
   has_many :likes, dependent: :destroy
+
+  accepts_nested_attributes_for :profile, allow_destroy: true
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }

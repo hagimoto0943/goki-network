@@ -51,7 +51,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_25_215632) do
 
   create_table "profiles", charset: "utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "tool_id", null: false
+    t.bigint "tool_id"
     t.string "avatar"
     t.integer "house_age"
     t.integer "house_floor"

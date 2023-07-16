@@ -1,0 +1,5 @@
+<% if @user.profile %>
+  <%= render 'profile'%>
+<% else %>
+  <%= render 'before_create_profile', { user: @user }%>
+<% end %>
