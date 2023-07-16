@@ -14,12 +14,13 @@ Rails.application.routes.draw do
   post 'fight', to: 'fights#create'
   patch 'fight', to: 'fights#update'
 
-  resources :users, only: %i[new create]
+  resources :users, only: %i[new create edit update destroy]
   resources :posts, only: %i[index new create show edit update destroy] do
     resource :likes, only: %i[create destroy]
   end
   resources :fights, only: [:index] do
     resource :supports, only: %i[create destroy]
   end
+  resources :profiles, only: %i[new create show update]
   mount ActionCable.server, at: '/cable'
 end

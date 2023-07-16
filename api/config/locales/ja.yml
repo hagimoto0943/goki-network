@@ -4,3 +4,8 @@ ja:
       post_types:
         destruction: "駆除"
         prevention: "予防"
+    profile:
+      house_structure:
+        wooden: "木造"
+        reinforced_concrete: "鉄筋コンクリート"
+        steel_frame: "簡易鉄骨"
