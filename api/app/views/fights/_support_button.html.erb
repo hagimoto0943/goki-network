@@ -1,11 +1,5 @@
-  <% if fight.support?(current_user) %>
-    <%= link_to fight_supports_path(fight.id), data: { "turbo-method": :delete } do %>
-      <button>応援解除</button>
-      <%= fight.supports.count %>
-    <% end %>
-  <% else %>
-    <%= link_to fight_supports_path(fight.id), data: { "turbo-method": :post } do %>
-      <button>応援</button>
-      <%= fight.supports.count %>
-    <% end %>
-  <% end %>
+<% if fight.support?(current_user) %>
+  <%= render 'unsupport', fight: fight %>
+<% else %>
+  <%= render 'support', fight: fight %>
+<% end %>
