@@ -1,3 +1,6 @@
-<%= link_to post_likes_path(post.id), data: { "turbo-method": :delete } do %>
-    <button>いいね解除</button>
+<%= turbo_frame_tag dom_id(post, :post_like) do %>
+    <%= button_to post_likes_path(post.id), class:"text-red-500",  method: :delete do %>
+        <i class="fa-solid fa-heart" style="color: #e90c0c;"></i>
+        <%= post.likes.count %>
+    <% end %>
 <% end %>
