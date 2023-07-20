@@ -6,11 +6,11 @@ class Post < ApplicationRecord
 
   enum :post_types, {destruction: 0, prevention: 1}
 
+  scope :liked_by, -> user {
+    joins(:likes).where('like.user_id = ?', user.id)
+  }
+
   validates :title, presence: true, length: {maximum: 255}
   validates :body, presence: true, length: {maximum: 65_535}
-
-  def like?(user)
-    likes.where(user_id: user.id).exists?
-  end
 
 end

@@ -1,6 +1,6 @@
 class FightsController < ApplicationController
   def index
-    @fights = Fight.order(created_at: :desc)
+    @fights = Fight.where(status: 1).order(created_at: :desc)
   end
 
   def create

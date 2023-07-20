@@ -1,5 +1,13 @@
-<% if fight.support?(current_user) %>
-  <%= render 'unsupport', fight: fight %>
-<% else %>
-  <%= render 'support', fight: fight %>
+<%= turbo_frame_tag fight do %>
+  <% if fight.support?(current_user) %>
+    <%= button_to fight_supports_path(fight.id), class: "text-yellow-500", method: :delete do %>
+      <i class="fa-solid fa-thumbs-up" style="color: #ffdd00;"></i>
+      <%= fight.supports.count %>
+    <% end %>
+  <% else %>
+    <%= button_to fight_supports_path(fight.id), class: "text-yellow-500", method: :post do %>
+      <i class="fa-regular fa-thumbs-up" style="color: #ffdd00;"></i>
+      <%= fight.supports.count %>
+    <% end %>
+  <% end %>
 <% end %>

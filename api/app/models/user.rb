@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :fights, dependent: :destroy
   has_many :supports, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :like_posts, through: :likes, source: :post
 
   accepts_nested_attributes_for :profile, allow_destroy: true
 
@@ -16,5 +17,17 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :email, presence: true
   validates :name, presence: true, length: { maximum: 255 }
+
+  def like(post)
+    like_posts << post
+  end
+
+  def unlike(post)
+    like_posts.destroy(post)
+  end
+
+  def like?(post)
+    like_posts.include?(post)
+  end
 
 end

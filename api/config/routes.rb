@@ -16,8 +16,11 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[new create edit update destroy]
   resources :posts, only: %i[index new create show edit update destroy] do
-    resource :likes, only: %i[create destroy]
+    collection do
+      get 'like'
+    end
   end
+  resources :likes, only: %i[create destroy]
   resources :fights, only: [:index] do
     resource :supports, only: %i[create destroy]
   end
