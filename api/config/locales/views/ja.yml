@@ -3,12 +3,29 @@ ja:
     login: "ログイン"
     register: "登録"
     logout: "ログアウト"
+    guest_login: "ゲストユーザーとしてログイン"
   users:
     new:
       welcome: "会員登録してゴキブリを克服しましょう。"
       title: "ユーザー登録"
       have_account?: "すでにアカウントをお持ちの方はこちら"
+    create:
+      success: "ユーザー登録が完了しました"
+      fail: "ユーザー登録に失敗しました"
+    edit:
+      edit_profile: "プロフィール編集"
+    update:
+      success: "プロフィールを更新しました"
+      fail: "プロフィールの更新に失敗しました"
   user_sessions:
     new:
       have_no_account?: "アカウントをお持ちでない方はこちら"
       forget_password?: "パスワードをお忘れですか？"
+    create:
+      success: "ログインしました"
+      fail: "ログインに失敗しました"
+    guest_login:
+      success: "ゲストとしてログインしました"
+      alert: "すでにログインしています"
+    destroy:
+      success: "ログアウトしました"

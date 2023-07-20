@@ -1,35 +1,69 @@
-<%= form_with model: @user, local: true do |f| %>
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+<section class="text-gray-600 body-font relative">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-col text-center w-full mb-12">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900"><%= t '.edit_profile' %></h1>
+    </div>
+    <div class="lg:w-1/2 md:w-2/3 mx-auto">
+      <%= form_with model: @user, local: true do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+        <div class="flex flex-wrap -m-2">
+          <div class="p-2 w-full">
+            <div class="relative">
+              <%= f.label :name,  class: "leading-7 text-sm text-gray-600" %>
+              <%= f.text_field :name, class: "w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" %>
+            </div>
+          </div>
+          <%= f.fields_for :profile, @user.profile do |pf| %>
+            <div class="p-2 w-1/2">
+              <div class="relative">
+                <%= pf.label :house_floor,  class: "leading-7 text-sm text-gray-600" %>
+                <%= pf.number_field :house_floor, class: "w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" %>
+              </div>
+            </div>
+            <div class="p-2 w-1/2">
+              <div class="relative">
+                <%= pf.label :house_age,  class: "leading-7 text-sm text-gray-600" %>
+                <%= pf.number_field :house_age, class: "w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" %>
+              </div>
+            </div>
+            <div class="p-2 w-1/3">
+              <div class="relative text-center">
+                <%= pf.radio_button :house_structure, Profile.house_structures.key(0), checked: "checked" %>
+                <%= pf.label :house_structure, Profile.house_structures_i18n[:wooden], class: "leading-7 text-sm text-gray-600" %>
+              </div>
+            </div>
+            <div class="p-2 w-1/3">
+              <div class="relative text-center">
+                <%= pf.radio_button :house_structure, Profile.house_structures.key(1) %>
+                <%= pf.label :house_structure, Profile.house_structures_i18n[:reinforced_concrete], class: "leading-7 text-sm text-gray-600" %>
+              </div>
+            </div>
+            <div class="p-2 w-1/3">
+              <div class="relative text-center">
+                <%= pf.radio_button :house_structure, Profile.house_structures.key(2) %>
+                <%= pf.label :house_structure, Profile.house_structures_i18n[:steel_frame], class: "leading-7 text-sm text-gray-600" %>
+              </div>
+            </div>
+            <div class="p-2 w-full">
+              <div class="relative">
+                <%= pf.label :avatar %>
+                <%= pf.file_field :avatar, accept: 'image/*', onchange: 'previewImage(preview)' %>
+                <%= pf.hidden_field :avatar_cache %>
+              </div>
+            </div>
+            <div class="p-2 w-full">
+              <div class="relative">
+                <%= image_tag @user.profile.avatar.url, id: 'preview', size: '300x200' %>
+              </div>
+            </div>
+          <% end %>
+          <div class="p-2 w-full">
+            <button class="flex mx-auto text-white bg-yellow-500 border-0 py-2 px-8 focus:outline-none hover:bg-yellow-600 rounded text-lg">
+            <%= f.submit %>
+            </button>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <div class="form-group">
-    <%= f.fields_for :profile, @user.profile do |pf| %>
-      <div class="form-group">
-        <%= pf.label :house_age %>
-        <%= pf.number_field :house_age %>
-      </div>
-      <div class="form-group">
-        <%= pf.label :house_floor %>
-        <%= pf.number_field :house_floor %>
-      </div>
-      <div class="form-group">
-        <%= pf.radio_button :house_structure, Profile.house_structures.key(0), checked: "checked" %>
-        <%= pf.label :house_structure, Profile.house_structures_i18n[:wooden] %>
-        <%= pf.radio_button :house_structure, Profile.house_structures.key(1) %>
-        <%= pf.label :house_structure, Profile.house_structures_i18n[:reinforced_concrete] %>
-        <%= pf.radio_button :house_structure, Profile.house_structures.key(2) %>
-        <%= pf.label :house_structure, Profile.house_structures_i18n[:steel_frame] %>
-      </div>
-      <div class="form-group">
-        <%= pf.label :avatar %>
-        <%= pf.file_field :avatar, accept: 'image/*', onchange: 'previewImage(preview)' %>
-        <%= pf.hidden_field :avatar_cache %>
-      </div>
-      <div class="mt-3 mb-3">
-        <%= image_tag @user.profile.avatar.url, id: 'preview', size: '300x200' %>
-      </div>
-    <% end %>
-  </div>
-  <%= f.submit %>
-<% end %>
+</section>

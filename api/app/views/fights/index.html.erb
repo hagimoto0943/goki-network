@@ -1,3 +1,14 @@
-<div class = "grid grid-cols-4 gap-4 m-5">
-    <%= render @fights %>
-</div>
+<section class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-wrap -m-4 text-center">
+            <% if logged_in? && @fight.present? %>
+                <div class="flex flex-col text-center w-full mb-20">
+                    <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">退治中のユーザー</h1>
+                </div>
+                <%= render @fights %>
+            <% else %>
+                <%= render 'shared/repuire_login_for_fights' %>
+            <% end %>
+        </div>
+    </div>
+</section>

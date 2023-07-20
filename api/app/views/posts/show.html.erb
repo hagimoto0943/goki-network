@@ -2,16 +2,18 @@
   <div class="container px-5 py-24 mx-auto">
     <div class="lg:w-4/5 mx-auto flex flex-wrap">
       <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
-        <h2 class="text-sm title-font text-gray-500 tracking-widest"><%= @post.created_at %></h2>
+        <h2 class="text-sm title-font text-gray-500 tracking-widest"><%= l @post.created_at %></h2>
         <div class = "flex justify-between">
           <h1 class="text-gray-900 text-3xl title-font font-medium mb-4"><%= @post.title %></h1>
           <h1 class="flex text-gray-900 textmd title-font font-medium mb-4">
             <span class="bg-blue-100 text-blue-800 text-lg font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300"><%= @post.post_types_i18n %></span>
-            <%= link_to edit_post_path do %>
-              <i class="fa-solid fa-pen-to-square mx-2"></i>
-            <% end %>
-            <%= link_to post_path, data: { "turbo-method": :delete } do %>
-              <i class="fa-solid fa-trash mx-2"></i>
+            <% if current_user == @post.user %>
+              <%= link_to edit_post_path do %>
+                <i class="fa-solid fa-pen-to-square mx-2"></i>
+              <% end %>
+              <%= link_to post_path, data: { "turbo-method": :delete } do %>
+                <i class="fa-solid fa-trash mx-2"></i>
+              <% end %>
             <% end %>
           </h1>
         </div>
