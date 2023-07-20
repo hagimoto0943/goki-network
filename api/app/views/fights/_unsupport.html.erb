@@ -1,6 +1,0 @@
-<%= turbo_frame_tag dom_id(fight, :fight_supports) do%>
-  <%= button_to fight_supports_path(fight.id), class: "text-yellow-500", method: :delete do %>
-    <i class="fa-solid fa-thumbs-up" style="color: #ffdd00;"></i>
-    <%= fight.supports.count %>
-  <% end %>
-<% end %>

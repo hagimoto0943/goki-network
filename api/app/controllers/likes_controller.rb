@@ -1,15 +1,21 @@
 class LikesController < ApplicationController
   def create
-    @post = Post.find(params[:post_id])
-    @post_like = Like.new(user_id: current_user.id, post_id: params[:post_id])
-    @post_like.save
-    redirect_back fallback_location: posts_path
+    post = Post.find(params[:post_id])
+    current_user.like(post)
+    render turbo_stream: turbo_stream.replace(
+      post,
+      partial: 'posts/like_button',
+      locals: { post: post }
+    )
   end
 
   def destroy
-    @post = Post.find(params[:post_id])
-    @post_like = Like.find_by(user_id: current_user.id, post_id: params[:post_id])
-    @post_like.destroy
-    redirect_back fallback_location: posts_path
+    post = current_user.likes.find(params[:id]).post
+    current_user.unlike(post)
+    render turbo_stream: turbo_stream.replace(
+      post,
+      partial: 'posts/like_button',
+      locals: { post: post }
+    )
   end
 end
