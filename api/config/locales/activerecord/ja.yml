@@ -5,7 +5,7 @@ ja:
       post: "ゴキブリ対策"
       fight: "退治中"
       profile: "プロフィール"
-      tool: "ゴキブリ対策道具"
+      tool: "ゴキブリ対策ツール"
     attributes:
       user:
         name: "ユーザー名"
@@ -17,8 +17,10 @@ ja:
         body: "本文"
         thumbnail: "画像"
         post_types: "投稿タイプ"
-  enums:
-    post:
-      post_types:
-        destruction: "駆除"
-        prevention: "予防"
+      fight:
+        status: "退治状況"
+      profile:
+        avatar: "アバター"
+        house_age: "自宅の築年数"
+        house_floor: "自宅の階数"
+        house_structure: "家の構造"

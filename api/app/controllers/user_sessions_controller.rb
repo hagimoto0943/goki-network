@@ -4,25 +4,31 @@ class UserSessionsController < ApplicationController
   def create
     @user = login(params[:email], params[:password])
     if @user
-      redirect_back_or_to root_path
+      redirect_back_or_to posts_path, success: t('.success')
     else
-      render :new
+      flash.now[:error] = t('.fail')
+      render :new, status: :unprocessable_entity
     end
   end
 
   def destroy
     logout
-    redirect_to login_path
+    redirect_to root_path, success: t('.success')
   end
 
   def guest_login
-    @guest_user = User.create(
-      name: 'ゲスト',
-      email: SecureRandom.alphanumeric(10) + "@email.com",
-      password: 'password',
-      password_confirmation: 'password'
-    )
-    auto_login(@guest_user)
-    redirect_to root_path, success: 'ゲストとしてログインしました'
+    if current_user
+      redirect_to posts_path, warning: t('.alert')
+    else
+      random_value = SecureRandom.hex
+      @guest_user = User.create!(
+        name: 'ゲスト',
+        email: "test_#{random_value}@example.com" + "@example.com",
+        password: "#{random_value}",
+        password_confirmation: "#{random_value}"
+      )
+      auto_login(@guest_user)
+      redirect_to posts_path, success: t('.success')
+    end
   end
 end

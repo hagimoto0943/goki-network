@@ -13,14 +13,9 @@
   </head>
 
   <body>
-    <% if logged_in? %>
-      <%= render 'shared/fight_button'%>
-    <% end %>
-    <% if logged_in? %>
-      <%= render 'shared/header' %>
-    <% else %>
-      <%= render 'shared/before_login_header' %>
-    <% end %>
+    <%= render logged_in? ? 'shared/header' : 'shared/before_login_header' %>
+    <%= render 'shared/fight_button' if logged_in? %>
+    <%= render 'shared/flash_message' %>
     <%= yield %>
     <%= render 'shared/footer'%>
   </body>

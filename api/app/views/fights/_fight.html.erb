@@ -1,15 +1,12 @@
-<div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-  <div class="flex flex-col items-center py-10">
-    <% if fight.user.profile %>
-      <%= image_tag fight.user.profile.avatar.url, class: "w-24 h-24 mb-3 rounded-full shadow-lg" %>
-    <% else %>
-      <i class="fa-solid fa-user w-10 h-10 rounded-full p-4 mx-2 bg-neutral-400"></i>
-    <% end %>
-    <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white"><%= fight.user.name %></h5>
-    <span class="text-sm text-gray-500 dark:text-gray-400"><%= l fight.created_at %></span>
-    <div class="flex mt-4 space-x-3 md:mt-6">
-      <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><%= fight.status %></a>
+<div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+    <div class="border-2 border-gray-200 px-8 py-10 rounded-lg">
+      <% if fight.user.profile %>
+        <%= image_tag fight.user.profile.avatar.url, class: "mx-auto w-20 h-20 border-gray-200 rounded-full" %>
+      <% else %>
+        <i class="fa-solid fa-user w-10 h-10 rounded-full p-4 mx-2 bg-neutral-400"></i>
+      <% end %>
+        <h2 class="title-font font-medium my-4 text-3xl text-gray-900"><%= fight.user.name %></h2>
+        <p class="leading-relaxed my-4"><%= l fight.created_at %></p>
         <%= render 'fights/support_button', {fight: fight} %>
     </div>
-  </div>
 </div>
