@@ -26,5 +26,14 @@ RSpec.describe User, type: :model do
       user.valid?
       expect(user.errors[:password_confirmation]).to include("とパスワードの入力が一致しません")
     end
+
+    it "登録済みのemailアドレスでは登録できない" do
+      email = Faker::Internet.email
+      user = create(:user, email: email)
+      user2 = build(:user, email: email)
+      user2.valid?
+      expect(user2.errors[:email]).to include("はすでに存在します")
+    end
+
   end
 end
