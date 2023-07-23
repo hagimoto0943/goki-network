@@ -24,6 +24,7 @@ ja:
       fail: "ユーザー登録に失敗しました"
     edit:
       edit_profile: "プロフィール編集"
+      title: "プロフィール編集"
     update:
       success: "プロフィールを更新しました"
       fail: "プロフィールの更新に失敗しました"
@@ -31,6 +32,7 @@ ja:
     new:
       have_no_account?: "アカウントをお持ちでない方はこちら"
       forget_password?: "パスワードをお忘れですか？"
+      title: "ログイン"
     create:
       success: "ログインしました"
       fail: "ログインに失敗しました"
@@ -40,6 +42,12 @@ ja:
     destroy:
       success: "ログアウトしました"
   posts:
+    index:
+      title: "ゴキブリ対策一覧"
+    new:
+      title: "ゴキブリ対策作成"
+    edit:
+      title: "ゴキブリ対策編集"
     create:
       success: "ゴキブリ対策を投稿しました"
       fail: "ゴキブリ対策を投稿できませんでした"
@@ -48,3 +56,11 @@ ja:
       fail: "ゴキブリ対策を編集できませんでした"
     destroy:
       success: "ゴキブリ対策を削除しました"
+  profiles:
+    show:
+      title: "プロフィール"
+    new:
+      title: "プロフィール作成"
+  fights:
+    index:
+      title: "退治中のユーザー"
