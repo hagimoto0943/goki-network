@@ -43,6 +43,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -58,6 +59,7 @@ gem 'tailwindcss-rails'
 gem 'cssbundling-rails'
 # 画像アップロード機能実装に使用
 gem 'carrierwave'
+gem 'fog-aws'
 # 楽天APIの使用
 gem 'rakuten_web_service'
 # 日本語化対応
