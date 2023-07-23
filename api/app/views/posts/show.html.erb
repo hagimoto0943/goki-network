@@ -6,7 +6,7 @@
         <div class = "flex justify-between">
           <h1 class="text-gray-900 text-3xl title-font font-medium mb-4"><%= @post.title %></h1>
           <h1 class="flex text-gray-900 textmd title-font font-medium mb-4">
-            <span class="bg-blue-100 text-blue-800 text-lg font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300"><%= @post.post_types_i18n %></span>
+            <span class="bg-pink-100 text-pink-800 text-lg font-medium mr-2 px-2.5 py-0.5 rounded-full"><%= @post.post_types_i18n %></span>
             <% if current_user == @post.user %>
               <%= link_to edit_post_path do %>
                 <i class="fa-solid fa-pen-to-square mx-2"></i>
@@ -19,8 +19,8 @@
         </div>
         <p class="leading-relaxed mb-4"><%= @post.body %></p>
         <div class="flex border-t border-gray-200 py-2">
-          <span class="text-gray-500">Color</span>
-          <span class="ml-auto text-gray-900">Blue</span>
+          <span class="text-gray-500">家屋</span>
+          <span class="ml-auto text-gray-900"><%= @post.user.profile %></span>
         </div>
         <div class="flex border-t border-gray-200 py-2">
           <span class="text-gray-500">Size</span>
