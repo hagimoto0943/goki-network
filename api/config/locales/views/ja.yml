@@ -12,6 +12,8 @@ ja:
     new_post: "ゴキブリ対策作成"
     edit_post: "ゴキブリ対策編集"
     noting_posts: "ゴキプリ対策はまだありません"
+    tool_search: "製品名で検索"
+    search: "検索"
   users:
     new:
       welcome: "会員登録してゴキブリを克服しましょう。"

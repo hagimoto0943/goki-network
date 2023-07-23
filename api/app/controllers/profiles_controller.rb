@@ -15,6 +15,7 @@ class ProfilesController < ApplicationController
 
   def show
     @user = User.find(current_user.id)
+    @like_posts = current_user.likes
   end
 
   private
