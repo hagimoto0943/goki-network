@@ -14,6 +14,8 @@ ja:
     noting_posts: "ゴキプリ対策はまだありません"
     tool_search: "製品名で検索"
     search: "検索"
+    for_tools: "おすすめ対策道具を見る"
+    watch_for_rakuten: "楽天市場で見る"
   users:
     new:
       welcome: "会員登録してゴキブリを克服しましょう。"
@@ -28,6 +30,8 @@ ja:
     update:
       success: "プロフィールを更新しました"
       fail: "プロフィールの更新に失敗しました"
+    destroy:
+      success: "ユーザーを削除しました"
   user_sessions:
     new:
       have_no_account?: "アカウントをお持ちでない方はこちら"
@@ -61,6 +65,15 @@ ja:
       title: "プロフィール"
     new:
       title: "プロフィール作成"
+    create:
+      success: "プロフィールを作成しました"
+      fail: "プロフィールの作成に失敗しました"
   fights:
     index:
       title: "退治中のユーザー"
+    create:
+      success: "退治を開始しました"
+      fail: "退治の開始に失敗しました"
+    update:
+      success: "退治を完了しました"
+      fail: "退治を完了できませんでした"

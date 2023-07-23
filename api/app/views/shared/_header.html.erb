@@ -7,6 +7,7 @@
       <%= link_to t('defaults.index_post'), posts_path, class: "mr-5 hover:text-gray-900"%>
       <%= link_to t('defaults.new_post'), new_post_path, class: "mr-5 hover:text-gray-900"%>
     </nav>
+    <%= link_to t('defaults.for_tools'), tools_path, class: 'inline-flex items-center text-white bg-yellow-500 border-0 py-1 px-3 focus:outline-none hover:bg-yellow-600 rounded text-base mt-4 mx-3 md:mt-0' %>
     <%= link_to t('defaults.logout'), logout_path, class: 'inline-flex items-center text-white bg-yellow-500 border-0 py-1 px-3 focus:outline-none hover:bg-yellow-600 rounded text-base mt-4 mx-3 md:mt-0', data: { turbo_method: :delete } %>
     <p><%= current_user.name %></p>
     <% if current_user.profile %>
