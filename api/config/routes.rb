@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'tools/search'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -25,5 +24,6 @@ Rails.application.routes.draw do
     resource :supports, only: %i[create destroy]
   end
   resources :profiles, only: %i[new create show update]
+  resources :tools, only: %i[index]
   mount ActionCable.server, at: '/cable'
 end

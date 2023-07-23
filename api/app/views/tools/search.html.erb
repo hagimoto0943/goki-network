@@ -11,7 +11,9 @@
   <div class="container px-5 py-4 mx-auto">
     <div class="flex flex-wrap -m-4">
       <% if @tools.present? %>
-        <%= render 'shared/tool' %>
+        <%= render 'tools/tool' %>
+      <% else %>
+        <%= render 'tools/default_tools' %>
       <% end %>
     </div>
   </div>

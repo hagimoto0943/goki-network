@@ -1,12 +1,12 @@
 class ToolsController < ApplicationController
+  def index
+    @tools = RakutenWebService::Ichiba::Item.search(keyword: "ゴキブリ")
+  end
+
   def search
-    @tool = Tool.new
     if params[:keyword]
       @tools = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword])
     end
-  end
-
-  def create
-
+    @default_tools = RakutenWebService::Ichiba::Item.search(keyword: "ゴキブリ")
   end
 end
