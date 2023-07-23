@@ -1,7 +1,7 @@
 <div dir = "rtl">
     <% if current_user.fights.where(status: 1).present? %>
-      <%= button_to "退治完了", fight_path, method: :patch, class: "fixed bottom-10 start-10 z-50 m-5 text-white bg-yellow-500 border-0 py-2 px-8 focus:outline-none hover:bg-yellow-600 rounded text-lg" %>
+      <%= button_to t('defaults.fight_off'), fight_path, method: :patch, class: "fixed bottom-10 start-10 z-50 m-5 text-white bg-yellow-500 border-0 py-2 px-8 focus:outline-none hover:bg-yellow-600 rounded text-lg" %>
     <% else %>
-      <%= button_to "退治開始", fight_path, method: :post , class: "fixed bottom-10 start-10 z-50 m-5 text-white bg-yellow-500 border-0 py-2 px-8 focus:outline-none hover:bg-yellow-600 rounded text-lg" %>
+      <%= button_to t('defaults.fight_on'), fight_path, method: :post , class: "fixed bottom-10 start-10 z-50 m-5 text-white bg-yellow-500 border-0 py-2 px-8 focus:outline-none hover:bg-yellow-600 rounded text-lg" %>
     <% end %>
   </div>

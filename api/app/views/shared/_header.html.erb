@@ -1,13 +1,13 @@
-<header class="text-gray-600 body-font border-b">
-  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+<header class="text-gray-600 border-yellow-500 body-font border-b">
+  <div class="container mx-auto flex flex-wrap py-2 flex-col md:flex-row items-center">
     <%= link_to root_path, class:'flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0' do %>
       <%= image_tag "goki_logo.png", class: 'w-30 h-10'%>
     <% end %>
     <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
-      <%= link_to "ゴキブリ対策一覧", posts_path, class: "mr-5 hover:text-gray-900"%>
-      <%= link_to "ゴキブリ対策投稿", new_post_path, class: "mr-5 hover:text-gray-900"%>
+      <%= link_to t('defaults.index_post'), posts_path, class: "mr-5 hover:text-gray-900"%>
+      <%= link_to t('defaults.new_post'), new_post_path, class: "mr-5 hover:text-gray-900"%>
     </nav>
-    <%= link_to 'ログアウト', logout_path, class: 'inline-flex items-center text-white bg-yellow-500 border-0 py-1 px-3 focus:outline-none hover:bg-yellow-600 rounded text-base mt-4 mx-3 md:mt-0', data: { turbo_method: :delete } %>
+    <%= link_to t('defaults.logout'), logout_path, class: 'inline-flex items-center text-white bg-yellow-500 border-0 py-1 px-3 focus:outline-none hover:bg-yellow-600 rounded text-base mt-4 mx-3 md:mt-0', data: { turbo_method: :delete } %>
     <p><%= current_user.name %></p>
     <% if current_user.profile %>
       <%= link_to profile_path(current_user) do%>

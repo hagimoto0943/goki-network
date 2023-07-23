@@ -1,9 +1,17 @@
 ja:
   defaults:
     login: "ログイン"
+    sign_in: "新規登録"
     register: "登録"
     logout: "ログアウト"
     guest_login: "ゲストユーザーとしてログイン"
+    require_login: "ログインしてください"
+    fight_on: "退治開始"
+    fight_off: "退治終了"
+    index_post: "ゴキブリ対策一覧"
+    new_post: "ゴキブリ対策作成"
+    edit_post: "ゴキブリ対策編集"
+    noting_posts: "ゴキプリ対策はまだありません"
   users:
     new:
       welcome: "会員登録してゴキブリを克服しましょう。"
@@ -29,3 +37,12 @@ ja:
       alert: "すでにログインしています"
     destroy:
       success: "ログアウトしました"
+  posts:
+    create:
+      success: "ゴキブリ対策を投稿しました"
+      fail: "ゴキブリ対策を投稿できませんでした"
+    update:
+      success: "ゴキブリ対策を編集しました"
+      fail: "ゴキブリ対策を編集できませんでした"
+    destroy:
+      success: "ゴキブリ対策を削除しました"
