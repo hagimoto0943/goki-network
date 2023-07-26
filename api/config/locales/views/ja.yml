@@ -5,6 +5,7 @@ ja:
     register: "登録"
     logout: "ログアウト"
     guest_login: "ゲストユーザーとしてログイン"
+    top_guest_login: "ログインせずに始める"
     require_login: "ログインしてください"
     fight_on: "退治開始"
     fight_off: "退治終了"
@@ -72,8 +73,8 @@ ja:
     index:
       title: "退治中のユーザー"
     create:
-      success: "退治を開始しました"
+      success: "退治開始!!!!"
       fail: "退治の開始に失敗しました"
     update:
-      success: "退治を完了しました"
+      success: "退治完了!! Nice Fight!!"
       fail: "退治を完了できませんでした"
