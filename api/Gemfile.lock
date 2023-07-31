@@ -248,6 +248,7 @@ GEM
     rake (13.0.6)
     rakuten_web_service (1.13.2)
       json (~> 2.3)
+    redis (4.8.1)
     regexp_parser (2.8.0)
     reline (0.3.3)
       io-console (~> 0.5)
@@ -348,6 +349,7 @@ DEPENDENCIES
   rails (~> 7.0.4, >= 7.0.4.3)
   rails-i18n (~> 7.0.0)
   rakuten_web_service
+  redis (~> 4.0)
   rspec-rails (~> 6.0.0)
   selenium-webdriver
   sorcery (~> 0.16.4)
