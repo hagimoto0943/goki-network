@@ -25,5 +25,5 @@ Rails.application.routes.draw do
   end
   resources :profiles, only: %i[new create show update]
   resources :tools, only: %i[index]
-  mount ActionCable.server, at: '/cable'
+  mount ActionCable.server => '/cable'
 end

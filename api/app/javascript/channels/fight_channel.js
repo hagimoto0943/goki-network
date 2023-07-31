@@ -1,4 +1,4 @@
-import consumer from "./consumer"
+import consumer from "./consumer";
 
 consumer.subscriptions.create("FightChannel", {
   connected() {
@@ -11,5 +11,11 @@ consumer.subscriptions.create("FightChannel", {
 
   received(data) {
     // Called when there's incoming data on the websocket for this channel
-  }
+    // const html = `<p>${data.name}</p>`;
+    // const fights = document.getElementById("fights");
+    // fights.insertAdjacentHTML("afterbegin", html);
+    console.log(data);
+  },
+
+  create_fight(data) {},
 });

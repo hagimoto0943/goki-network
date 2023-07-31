@@ -1,15 +1,18 @@
 <% content_for(:title, t('.title')) %>
-<section class="text-gray-600 body-font">
-    <div class="container px-5 py-24 mx-auto">
-        <div class="flex flex-wrap -m-4 text-center">
-            <% if logged_in? && @fights.present? %>
-                <div class="flex flex-col text-center w-full mb-20">
-                    <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">退治中のユーザー</h1>
-                </div>
+
+<% if logged_in? && @fights.present? %>
+    <div class="bg-white py-6 sm:py-8 lg:py-12">
+        <div class="mx-auto max-w-screen-xl px-4 md:px-8">
+        <!-- text - start -->
+            <div class="mb-10 md:mb-16">
+                <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">退治中のユーザー</h2>
+            </div>
+        <!-- text - end -->
+            <div id = "fights" class="grid grid-cols-2 gap-x-4 gap-y-8 md:grid-cols-4 lg:gap-x-8 lg:gap-y-12" >
                 <%= render @fights %>
-            <% else %>
-                <%= render 'shared/repuire_login_for_fights' %>
-            <% end %>
+            </div>
         </div>
     </div>
-</section>
+<% else %>
+    <%= render 'shared/repuire_login_for_fights' %>
+<% end %>

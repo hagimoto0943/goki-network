@@ -1,18 +1,18 @@
 <% content_for(:title, t('.title')) %>
-<section class="text-gray-600  body-font">
-  <div class="container px-5 py-24 mx-auto">
-    <div class="flex flex-wrap -m-4">
-      <% if @posts.present? %>
-        <div class="flex flex-col text-center w-full mb-6">
-          <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900"><%= t 'defaults.index_post' %></h1>
-        </div>
-        <%= render @posts %>
-      <% else %>
-        <div class="flex flex-col text-center w-full mb-2">
-          <h1 class="sm:text-3xl text-2xl font-medium title-font my-4 text-gray-900"><%= t 'defaults.index_post' %></h1>
-        </div>
-          <p><%= t 'defaults.noting_posts' %></p>
-      <% end %>
+  <section class="text-gray-600  body-font">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="flex flex-wrap -m-4">
+        <% if @posts.present? %>
+          <div class="flex flex-col text-center w-full mb-6">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900"><%= t 'defaults.index_post' %></h1>
+          </div>
+          <%= render @posts %>
+        <% else %>
+          <div class="flex flex-col text-center w-full mb-2">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font my-4 text-gray-900"><%= t 'defaults.index_post' %></h1>
+          </div>
+            <p><%= t 'defaults.noting_posts' %></p>
+        <% end %>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
