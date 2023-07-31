@@ -3,3 +3,4 @@ import "controllers";
 import "@hotwired/turbo-rails";
 import "@rails/actioncable";
 import "@fortawesome/fontawesome-free";
+import "channels";

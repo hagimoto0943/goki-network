@@ -6,6 +6,7 @@ class FightsController < ApplicationController
   def create
     @fight = current_user.fights.new
     if @fight.save
+      # ActionCable.server.broadcast("")
       redirect_to fights_path, success: t('.success')
     else
       flash.now[:error] = t('.fail')
