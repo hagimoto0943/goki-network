@@ -1,10 +1,13 @@
-class FightChannel < ApplicationCable::Channel
+class FightsChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "fight_channel"
+    stream_from "some_channel"
   end
 
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
+  end
+
+  def fight(data)
   end
 
 end
