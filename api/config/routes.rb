@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
+  mount ActionCable.server => '/cable'
   root "tops#index"
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
@@ -25,5 +26,4 @@ Rails.application.routes.draw do
   end
   resources :profiles, only: %i[new create show update]
   resources :tools, only: %i[index]
-  mount ActionCable.server => '/cable'
 end
