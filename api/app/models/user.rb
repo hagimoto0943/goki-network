@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :fights, dependent: :destroy
   has_many :supports, dependent: :destroy
+  has_many :support_fghts, through: :supports, source: :fight
   has_many :likes, dependent: :destroy
   has_many :like_posts, through: :likes, source: :post
 
@@ -28,6 +29,18 @@ class User < ApplicationRecord
 
   def like?(post)
     like_posts.include?(post)
+  end
+
+  def support(fight)
+    support_fghts << fight
+  end
+
+  def unsupport(fight)
+    support_fghts.destroy(fight)
+  end
+
+  def support?(fight)
+    support_fghts.include?(fight)
   end
 
 end

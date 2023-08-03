@@ -1,7 +1,7 @@
 class SupportsController < ApplicationController
   def create
     fight = Fight.find(params[:fight_id])
-    Support.create!(user_id: current_user.id, fight_id: params[:fight_id])
+    current_user.support(fight)
     render turbo_stream: turbo_stream.replace(
       fight,
       partial: 'fights/support_button',
@@ -10,8 +10,8 @@ class SupportsController < ApplicationController
   end
 
   def destroy
-    fight = Fight.find(params[:fight_id])
-    Support.find_by(user_id: current_user.id, fight_id: params[:fight_id]).destroy!
+    fight = current_user.supports.find(params[:id]).fight
+    current_user.unsupport(fight)
     render turbo_stream: turbo_stream.replace(
       fight,
       partial: 'fights/support_button',

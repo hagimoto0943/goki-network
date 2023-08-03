@@ -10,10 +10,6 @@ Rails.application.routes.draw do
 
   post 'guest_login', to: 'user_sessions#guest_login'
 
-  get 'fights', to: 'fights#index'
-  post 'fight', to: 'fights#create'
-  patch 'fight', to: 'fights#update'
-
   resources :users, only: %i[new create edit update destroy]
   resources :posts, only: %i[index new create show edit update destroy] do
     collection do
@@ -21,9 +17,12 @@ Rails.application.routes.draw do
     end
   end
   resources :likes, only: %i[create destroy]
-  resources :fights, only: [:index] do
-    resource :supports, only: %i[create destroy]
+  resources :fights, only: %i[index create update] do
+    collection do
+      get 'support'
+    end
   end
+  resource :supports, only: %i[create destroy]
   resources :profiles, only: %i[new create show update]
   resources :tools, only: %i[index]
 end
