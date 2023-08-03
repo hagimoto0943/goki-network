@@ -7,6 +7,5 @@ test:
 
 production:
   adapter: redis
-  port: 6379
-  url: <%= ENV['REDIS_URL'] %>
+  url: redis://red-cj5lhq0eba7s73eo3100:6379
   # channel_prefix: api_production
