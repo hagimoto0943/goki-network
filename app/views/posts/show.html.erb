@@ -7,7 +7,11 @@
         <div class = "flex justify-between">
           <h1 class="text-gray-900 text-3xl title-font font-medium mb-4"><%= @post.title %></h1>
           <h1 class="flex text-gray-900 textmd title-font font-medium mb-4">
-            <span class="bg-pink-100 text-pink-800 text-lg font-medium mr-2 px-2.5 py-0.5 rounded-full"><%= @post.post_types_i18n %></span>
+            <% if @post.post_types == "prevention" %>
+              <span class="bg-blue-200 text-blue-800 text-lg font-medium mr-2 px-2.5 py-0.5 rounded-full"><%= @post.post_types_i18n %></span>
+            <% else %>
+              <span class="bg-pink-100 text-pink-800 text-lg font-medium mr-2 px-2.5 py-0.5 rounded-full"><%= @post.post_types_i18n %></span>
+            <% end %>
             <% if current_user == @post.user %>
               <%= link_to edit_post_path do %>
                 <i class="fa-solid fa-pen-to-square mx-2"></i>
@@ -21,25 +25,21 @@
         <div class="text-xl mb-4"><%= simple_format(@post.body) %></div>
         <div class="flex border-t border-gray-200 py-2">
           <span class="text-gray-500">家屋</span>
-          <span class="ml-auto text-gray-900"></span>
+          <span class="ml-auto text-gray-900"><%= @profile.house_structure_i18n if @profile %></span>
         </div>
         <div class="flex border-t border-gray-200 py-2">
           <span class="text-gray-500">築年数</span>
-          <span class="ml-auto text-gray-900"></span>
+          <span class="ml-auto text-gray-900"><%= @profile.house_age if @profile %></span>
         </div>
         <div class="flex border-t border-b mb-6 border-gray-200 py-2">
           <span class="text-gray-500">階数</span>
-          <span class="ml-auto text-gray-900"></span>
+          <span class="ml-auto text-gray-900"><%= @profile.house_floor if @profile %></span>
         </div>
         <div class="flex">
-          <% if current_user.profile %>
-            <%= link_to profile_path(current_user) do%>
-              <%= image_tag current_user.profile.avatar.url, class: "w-10 h-10 rounded-full" %>
-            <% end %>
+          <% if @profile %>
+              <%= image_tag @profile.avatar.url, class: "w-10 h-10 rounded-full" %>
           <% else %>
-            <%= link_to profile_path(current_user) do%>
               <i class="fa-solid fa-user w-5 h-5 rounded-full p-4 mx-2 bg-neutral-400"></i>
-            <% end %>
           <% end %>
           <span class="title-font font-medium text-lg text-gray-900"><%= @post.user.name %></span>
           <div class="flex ml-auto text-white border-0 py-2 px-6 "></div>
