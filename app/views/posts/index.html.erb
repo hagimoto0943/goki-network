@@ -1,8 +1,8 @@
 <% content_for(:title, t('.title')) %>
 <%= render 'shared/tab_post' %>
   <section class="text-gray-600  body-font">
-  <%= render 'shared/live_alert'%>
     <div class="container px-5 py-24 mx-auto">
+      <%= render 'shared/live_alert'%>
       <div class="flex flex-wrap -m-4">
         <% if @posts.present? %>
           <div class="flex flex-col text-center w-full mb-6">

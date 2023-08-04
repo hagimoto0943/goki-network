@@ -1,6 +1,5 @@
 <% content_for(:title, t('.title')) %>
 <%= render 'shared/tab_fight' %>
-<%= render 'shared/live_alert'%>
 <% if logged_in? && @fights.present? %>
     <div class="bg-white py-6 sm:py-8 lg:py-12">
         <div class="mx-auto max-w-screen-xl px-4 md:px-8">
