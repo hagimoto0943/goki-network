@@ -6,11 +6,11 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "https://cdn.jsdelivr.net/npm/daisyui@2.6.0/dist/full.css" %>
     <%= javascript_importmap_tags %>
     <%= favicon_link_tag('favicon.ico') %>
   </head>
-
-  <body>
+  <body class = "bg-white">
     <%= render logged_in? ? 'shared/header' : 'shared/before_login_header' %>
     <%= render 'shared/fight_button' if logged_in? %>
     <%= render 'shared/flash_message' %>
