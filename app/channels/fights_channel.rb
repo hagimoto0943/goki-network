@@ -7,7 +7,4 @@ class FightsChannel < ApplicationCable::Channel
     # Any cleanup needed when channel is unsubscribed
   end
 
-  def fight(data)
-  end
-
 end

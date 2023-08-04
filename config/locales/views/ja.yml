@@ -9,6 +9,7 @@ ja:
     require_login: "ログインしてください"
     fight_on: "退治開始"
     fight_off: "退治終了"
+    fight_user: "退治中のユーザー"
     index_post: "ゴキブリ対策一覧"
     new_post: "ゴキブリ対策作成"
     edit_post: "ゴキブリ対策編集"

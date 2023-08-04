@@ -3,10 +3,10 @@
       <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
         <%= image_tag (tool['mediumImageUrls'][0]), class: "lg:h-48 md:h-36 mx-auto object-center" %>
         <div class="p-6">
-          <h1 class="title-font text-lg font-medium text-gray-900 mb-3"> <%= link_to tool.name, "#{tool.url}" %></h1>
+          <h1 class="title-font text-lg font-medium text-gray-900 mb-3"> <%= link_to tool.name, "#{tool.url}", target: :_blank %></h1>
           <div class = "flex justify-between">
             <p class="leading-relaxed mb-3"><%= number_with_delimiter(tool.price) %>円</p>
-            <%= link_to t('defaults.watch_for_rakuten'), "#{tool.url}", class: 'inline-flex items-center text-white bg-red-500 border-0 py-1 px-3 focus:outline-none hover:bg-red-600 rounded text-base mt-4 mx-3 md:mt-0'%>
+            <%= link_to t('defaults.watch_for_rakuten'), "#{tool.url}", class: 'inline-flex items-center text-white bg-red-500 border-0 py-1 px-3 focus:outline-none hover:bg-red-600 rounded text-base mt-4 mx-3 md:mt-0', target: :_blank %>
           </div>
         </div>
       </div>

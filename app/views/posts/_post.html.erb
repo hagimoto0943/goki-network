@@ -10,7 +10,11 @@
         <a class="text-yellow-500 inline-flex items-center md:mb-2 lg:mb-0">
           <%=post.user.name%>
         </a>
-        <span class="mx-auto bg-pink-100 text-pink-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-pink-400 border border-pink-400"><%= post.post_types_i18n %></span>
+        <% if post.post_types == "prevention" %>
+          <span class="mx-auto bg-blue-200 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded border border-blue-400"><%= post.post_types_i18n %></span>
+        <% else %>
+          <span class="mx-auto bg-pink-100 text-pink-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded border border-pink-400"><%= post.post_types_i18n %></span>
+        <% end %>
         <span class="text-gray-400 mr-1 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 ">
           <%= render 'like_button', post: post%>
         </span>
