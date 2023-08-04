@@ -30,20 +30,7 @@ consumer.subscriptions.create("FightsChannel", {
                 </div>
             </div>
         </div>`;
-    const alert = `
-        <div class="items-center w-full max-w-xs p-4 animate-pulse text-gray-500 bg-white rounded-lg shadow role="alert">
-          <div class="ml-3 text-sm font-normal">${name}さんが退治を開始しました。</div>
-        </div>
-      `;
     const fights = document.getElementById("fights");
-    const alertMessage = document.getElementById("alert");
     fights.insertAdjacentHTML("afterbegin", html);
-    alertMessage.insertAdjacentHTML("afterbegin", alert);
-    function removeAlert() {
-      alertMessage.classList.add("hidden");
-    }
-    setTimeout(() => {
-      removeAlert();
-    }, 5000);
   },
 });
