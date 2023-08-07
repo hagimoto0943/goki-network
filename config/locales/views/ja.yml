@@ -18,6 +18,11 @@ ja:
     search: "検索"
     for_tools: "おすすめ対策道具"
     watch_for_rakuten: "楽天市場で見る"
+    search_word: "キーワード"
+    house_floor: "階数"
+    house_age: "築年数"
+    house_structure: "家の構造"
+    post_types: "駆除or予防"
   users:
     new:
       welcome: "会員登録してゴキブリを克服しましょう。"

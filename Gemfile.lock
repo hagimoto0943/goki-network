@@ -155,6 +155,18 @@ GEM
       activesupport (>= 5.0.0)
     json (2.6.3)
     jwt (2.7.0)
+    kaminari (1.2.2)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.2)
+      kaminari-activerecord (= 1.2.2)
+      kaminari-core (= 1.2.2)
+    kaminari-actionview (1.2.2)
+      actionview
+      kaminari-core (= 1.2.2)
+    kaminari-activerecord (1.2.2)
+      activerecord
+      kaminari-core (= 1.2.2)
+    kaminari-core (1.2.2)
     loofah (2.21.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -248,6 +260,10 @@ GEM
     rake (13.0.6)
     rakuten_web_service (1.13.2)
       json (~> 2.3)
+    ransack (3.2.1)
+      activerecord (>= 6.1.5)
+      activesupport (>= 6.1.5)
+      i18n
     redis (4.8.1)
     regexp_parser (2.8.0)
     reline (0.3.3)
@@ -342,6 +358,7 @@ DEPENDENCIES
   fog-aws
   importmap-rails
   jbuilder
+  kaminari
   mysql2
   pg
   pry-rails
@@ -349,6 +366,7 @@ DEPENDENCIES
   rails (~> 7.0.4, >= 7.0.4.3)
   rails-i18n (~> 7.0.0)
   rakuten_web_service
+  ransack (~> 3.1)
   redis (~> 4.0)
   rspec-rails (~> 6.0.0)
   selenium-webdriver
