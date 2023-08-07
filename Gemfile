@@ -67,6 +67,8 @@ gem 'rails-i18n', '~> 7.0.0'
 gem 'enum_help'
 # 検索機能
 gem 'ransack', '~> 3.1'
+# ページネーション
+gem 'kaminari'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

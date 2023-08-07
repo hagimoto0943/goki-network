@@ -1,6 +1,6 @@
 class FightsController < ApplicationController
   def index
-    @fights = Fight.where(status: 1).includes(:user).order(created_at: :desc)
+    @fights = Fight.where(status: 1).includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   def create
