@@ -77,6 +77,11 @@ group :development, :test do
   gem "faker"
   gem 'rspec-rails', '~> 6.0.0'
   gem 'factory_bot_rails'
+
+  gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec'
 end
 
 group :development do
