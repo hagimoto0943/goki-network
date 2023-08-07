@@ -1,4 +1,8 @@
 class ProfilesController < ApplicationController
+  def show
+    @user = User.find(current_user.id)
+    @like_posts = current_user.likes
+  end
 
   def new
     @profile = Profile.new
@@ -14,15 +18,9 @@ class ProfilesController < ApplicationController
     end
   end
 
-  def show
-    @user = User.find(current_user.id)
-    @like_posts = current_user.likes
-  end
-
   private
 
   def profile_params
     params.require(:profile).permit(:user_id, :tool_id, :house_age, :house_floor, :house_structure, :avatar)
   end
-
 end

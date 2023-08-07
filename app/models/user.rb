@@ -42,5 +42,4 @@ class User < ApplicationRecord
   def support?(fight)
     support_fghts.include?(fight)
   end
-
 end

@@ -4,13 +4,13 @@ class PostsController < ApplicationController
     @posts = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
   end
 
-  def new
-    @post =  Post.new
-  end
-
   def show
     @post = Post.find(params[:id])
     @profile = @post.user.profile
+  end
+
+  def new
+    @post =  Post.new
   end
 
   def edit
