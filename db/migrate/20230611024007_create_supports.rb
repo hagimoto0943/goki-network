@@ -6,5 +6,6 @@ class CreateSupports < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
+    add_index :supports, [:user_id, :fight_id], unique: :true
   end
 end

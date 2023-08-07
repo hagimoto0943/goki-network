@@ -5,6 +5,10 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def edit
+    @user = User.find(current_user.id)
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save
@@ -13,10 +17,6 @@ class UsersController < ApplicationController
       flash.now[:error] = t('.fail')
       render :new, status: :unprocessable_entity
     end
-  end
-
-  def edit
-    @user = User.find(current_user.id)
   end
 
   def update
@@ -43,6 +43,7 @@ class UsersController < ApplicationController
       :password,
       :password_confirmation,
       :name,
-      profile_attributes: [:id, :avatar, :house_age, :house_floor, :house_structure, :_destroy])
+      profile_attributes: [:id, :avatar, :house_age, :house_floor, :house_structure, :_destroy]
+    )
   end
 end

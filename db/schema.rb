@@ -68,6 +68,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_25_215632) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["fight_id"], name: "index_supports_on_fight_id"
+    t.index ["user_id", "fight_id"], name: "index_supports_on_user_id_and_fight_id", unique: true
     t.index ["user_id"], name: "index_supports_on_user_id"
   end
 

@@ -1,7 +1,8 @@
 class UserSessionsController < ApplicationController
   skip_before_action :require_login, only: %i[new create guest_login]
 
-  def new; end
+  def new
+  end
 
   def create
     @user = login(params[:email], params[:password])
@@ -22,12 +23,12 @@ class UserSessionsController < ApplicationController
     if current_user
       redirect_to posts_path, warning: t('.alert')
     else
-      random_value = SecureRandom.hex
+      random_value = SecureRandom.hex.to_s
       @guest_user = User.create!(
         name: 'ゲスト',
-        email: "test_#{random_value}@example.com" + "@example.com",
-        password: "#{random_value}",
-        password_confirmation: "#{random_value}"
+        email: "test_#{random_value}@example.com",
+        password: random_value,
+        password_confirmation: random_value
       )
       auto_login(@guest_user)
       redirect_to posts_path, success: t('.success')
