@@ -8,6 +8,14 @@ class Fight < ApplicationRecord
     done! if progress?
   end
 
+  def status_timeout
+    fight_progress = Fight.all.where(status == "progress")
+    fight_progress.each do |fight|
+      start_time = fight.created_at
+      done! if Time.now > start_time + 120*60
+    end
+  end
+
   def support?(user)
     supports.exists?(user_id: user.id)
   end

@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
   post 'guest_login', to: 'user_sessions#guest_login'
 
+  get '/privacy', to: 'pages#privacy'
+  get '/rules', to: 'pages#rules'
+
   resources :users, only: %i[new create edit update destroy]
   resources :posts, only: %i[index new create show edit update destroy] do
     collection do
