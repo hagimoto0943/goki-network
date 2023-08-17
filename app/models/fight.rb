@@ -4,16 +4,10 @@ class Fight < ApplicationRecord
 
   enum :status, { done: 0, progress: 1 }
 
+  scope :timeout_status, -> { where('id + 120 * 60 > ?', Time.now)}
+
   def toggle_status!
     done! if progress?
-  end
-
-  def status_timeout
-    fight_progress = Fight.all.where(status == "progress")
-    fight_progress.each do |fight|
-      start_time = fight.created_at
-      done! if Time.now > start_time + 120*60
-    end
   end
 
   def support?(user)
