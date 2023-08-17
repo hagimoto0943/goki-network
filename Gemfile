@@ -69,6 +69,8 @@ gem 'enum_help'
 gem 'ransack', '~> 3.1'
 # ページネーション
 gem 'kaminari'
+# Rake Task
+gem 'whenever', require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
