@@ -3,12 +3,12 @@ require File.expand_path(File.dirname(__FILE__) + "/environment")
 
 # It's helpful, but not entirely necessary to understand cron before proceeding.
 # http://en.wikipedia.org/wiki/Cron
-# rails_env = ENV['RAILS_ENV'] || :development
+rails_env = ENV['RAILS_ENV'] || :development
 
 # Example:
 
 # set :output, "/path/to/my/cron_log.log"
-set :environment, :production
+set :environment, rails_env
 set :output, "#{Rails.root}/log/cron.log"
 
 every 1.hour do
