@@ -1,23 +1,21 @@
 <div class="p-4 md:w-1/3">
-  <div class="h-full border-4 border-yellow-500 border-opacity-60 rounded-lg overflow-hidden">
-    <%= image_tag post.thumbnail.url, class: "lg:h-48 md:h-36 w-full object-cover object-center" %>
-    <div class="p-6">
+  <div class="card h-full bg-base-100 rounded-lg overflow-hidden">
+    <figure><%= image_tag post.thumbnail.url, class: "lg:h-48 md:h-36 w-full object-cover object-center" %></figure>
+    <div class="card-body p-6">
       <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"><%= l post.created_at%></h2>
       <%= link_to post_path(post.id) do%>
-        <h1 class="title-font text-lg font-medium text-gray-900 mb-3"><%=post.title%></h1>
+        <h1 class="card-title title-font text-lg font-medium text-gray-900 mb-3">
+          <%=post.title%>
+          <% if post.post_types == "prevention" %>
+            <div class="badge badge-info"><%= post.post_types_i18n %></div>
+          <% else %>
+            <div class="badge badge-secondary"><%= post.post_types_i18n %></div>
+          <% end %>
+        </h1>
       <% end %>
-      <div class="flex items-center flex-wrap ">
-        <a class="text-yellow-500 inline-flex items-center md:mb-2 lg:mb-0">
-          <%=post.user.name%>
-        </a>
-        <% if post.post_types == "prevention" %>
-          <span class="mx-auto bg-blue-200 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded border border-blue-400"><%= post.post_types_i18n %></span>
-        <% else %>
-          <span class="mx-auto bg-pink-100 text-pink-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded border border-pink-400"><%= post.post_types_i18n %></span>
-        <% end %>
-        <span class="text-gray-400 mr-1 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 ">
-          <%= render 'like_button', post: post%>
-        </span>
+      <div class="card-actions justify-between">
+        <div class="badge badge-lg badge-neutral"><%=post.user.name%></div>
+        <%= render 'like_button', post: post%>
       </div>
     </div>
   </div>

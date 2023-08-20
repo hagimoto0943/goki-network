@@ -1,9 +1,7 @@
 <% if @user.profile %>
   <% content_for(:title, @user.name) %>
-  <%= render 'shared/tab' %>
   <%= render 'profile'%>
 <% else %>
   <% content_for(:title, t('.title')) %>
-  <%= render 'shared/tab' %>
   <%= render 'before_create_profile', { user: @user }%>
 <% end %>

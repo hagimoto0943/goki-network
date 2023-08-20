@@ -1,10 +1,21 @@
-<div class="navbar bg-white px-4">
-  <div class="flex-1">
-    <%= link_to posts_path, class:'btn btn-ghost normal-case text-xl' do %>
+<div class="navbar bg-base-100 text-neutral-conten">
+  <div class="navbar-start ml-4">
+    <div class="dropdown">
+      <label tabindex="0" class="btn btn-ghost btn-circle">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+      </label>
+      <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 border rounded-box w-52">
+        <li><%= link_to t('defaults.index_post'), posts_path %></li>
+        <li><%= link_to t('defaults.fight_user'), fights_path %></li>
+      </ul>
+    </div>
+  </div>
+  <div class="navbar-center">
+    <%= link_to posts_path, class: "btn btn-ghost normal-case text-xl ml-2" do %>
       <%= image_tag "goki_logo.png", class: 'w-30 h-10'%>
     <% end %>
   </div>
-  <div class="flex-none">
+  <div class="navbar-end mx-4">
     <div class="dropdown dropdown-end">
       <label tabindex="0" class="btn btn-ghost btn-circle avatar">
         <div class="w-full rounded-full border border-gray-400">
@@ -15,7 +26,7 @@
           <% end %>
         </div>
       </label>
-      <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-white border-spacing-4 rounded-box w-52">
+      <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 border rounded-box w-52">
         <li class = "mx-auto">
           <%= link_to current_user.name, profile_path(current_user) %>
         </li>

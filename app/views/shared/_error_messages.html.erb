@@ -1,5 +1,5 @@
 <% if object.errors.any? %>
-  <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
+  <div class="flex p-4 mb-4 text-sm text-error-content rounded-lg bg-error" role="alert">
     <div>
       <ul class="mt-1.5 ml-4 list-disc list-inside">
         <% object.errors.full_messages.each do |msg| %>
