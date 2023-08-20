@@ -1,4 +1,4 @@
-<section class="text-gray-600 body-font">
+<section class="bg-base-200 py-8 text-gray-600 body-font">
   <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
     <% if user.profile %>
       <%= image_tag current_user.profile.avatar.url %>
@@ -10,7 +10,7 @@
       <p class="mb-8 leading-relaxed">プロフィールを作成しましょう！</p>
       <div class="flex justify-center">
         <%= link_to new_profile_path do%>
-          <button class="inline-flex text-white bg-yellow-500 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-600 rounded text-lg">プロフィールを作成</button>
+          <button class="btn btn-neutral">プロフィールを作成</button>
         <% end %>
       </div>
     </div>

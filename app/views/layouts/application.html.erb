@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-theme="light">
+<html data-theme="autumn">
   <head>
     <title><%= page_title(yield(:title)) %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -10,7 +10,7 @@
     <%= javascript_importmap_tags %>
     <%= favicon_link_tag('favicon.ico') %>
   </head>
-  <body class = "bg-white">
+  <body>
     <%= render logged_in? ? 'shared/header' : 'shared/before_login_header' %>
     <%= render 'shared/fight_button' if logged_in? %>
     <%= render 'shared/flash_message' %>

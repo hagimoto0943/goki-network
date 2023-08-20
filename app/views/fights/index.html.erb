@@ -1,21 +1,20 @@
 <% content_for(:title, t('.title')) %>
-<%= render 'shared/tab_fight' %>
 <% if logged_in? && @fights.present? %>
-    <div class="bg-white py-6 sm:py-8 lg:py-12">
+    <div class="bg-base-200 py-6 sm:py-8 lg:py-12">
         <div class="mx-auto max-w-screen-xl px-4 md:px-8">
         <!-- text - start -->
-            <div class="mb-10 md:mb-16">
-                <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">退治中のユーザー</h2>
+            <div class="text-center mb-10 md:mb-16">
+                <h1 class="sm:text-3xl text-2xl font-medium title-font my-4 text-gray-900">退治中のユーザー</h1>
             </div>
         <!-- text - end -->
             <div class="grid grid-cols-2 gap-x-4 gap-y-8 md:grid-cols-4 lg:gap-x-8 lg:gap-y-12" id = "fights">
                 <%= render @fights %>
             </div>
         </div>
+        <div class="join text-center my-6">
+            <%= paginate @fights %>
+        </div>
     </div>
 <% else %>
     <%= render 'shared/repuire_login_for_fights' %>
 <% end %>
-<div class="join text-center my-6">
-    <%= paginate @fights %>
-</div>
