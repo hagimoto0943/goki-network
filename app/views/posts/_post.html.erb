@@ -6,12 +6,12 @@
       <%= link_to post_path(post.id) do%>
         <h1 class="card-title title-font text-lg font-medium text-gray-900 mb-3">
           <%=post.title%>
-          <% if post.post_types == "prevention" %>
-            <div class="badge badge-info"><%= post.post_types_i18n %></div>
-          <% else %>
-            <div class="badge badge-secondary"><%= post.post_types_i18n %></div>
-          <% end %>
         </h1>
+        <% if post.post_types == "prevention" %>
+          <div class="badge badge-info"><%= post.post_types_i18n %></div>
+        <% else %>
+          <div class="badge badge-secondary"><%= post.post_types_i18n %></div>
+        <% end %>
       <% end %>
       <div class="card-actions justify-between">
         <div class="badge badge-lg badge-neutral"><%=post.user.name%></div>
