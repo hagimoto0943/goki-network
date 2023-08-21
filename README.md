@@ -17,14 +17,11 @@
 ## 主な機能
 
 - 一般ユーザー
-
   - ユーザー登録機能
   - ログイン、ゲストログイン機能
   - トップページ(サービス紹介ページ)閲覧
   - プライバシーポリシー、お問い合わせ、利用規約の閲覧
-
 - ゲスト、ログインユーザー
-
   - ログイン、ログアウト機能 -リアルタイム退治中機能
     - 退治を開始できる
     - 退治を終了できる
@@ -46,10 +43,19 @@
       - 木造 or 鉄筋コンクリートを登録、編集、削除できる
     - ユーザーのアバターを登録、編集、削除できる
     - ユーザーの名前を編集できる
+  - おすすめ対策グッズ閲覧機能
+    - RakutenAPI を使用したお勧めゴキブリ対策グッズを閲覧できる
 
-- 追加機能
-  - ゲストユーザー
-    - GoogleMapAPI を使用したゴキブリ出現マップを閲覧できる
+## 使用技術
+
+- Ruby 3.0.2
+- Rails 7.0.4.3
+- PostgreSQL
+- turbo-rails
+- Tailwind CSS
+- daisyUI
+- RakutenAPI
+- Render.com
 
 ## 画面遷移図
 
@@ -64,11 +70,7 @@ users ||--o{ posts : create
 users ||--o{ likes : many_to_many
 users ||--o{ supports : many_to_many
 fights ||--o{ supports : many_to_many
-users ||--o{ find_spots : create
 posts ||--o{ likes : many_to_many
-tools || -- o{ profiles :  reference
-posts || --o{ post_tool : many_to_many
-tools || --o{ post_tool : many_to_many
 users ||--o| profiles : has_one
 
   users {
@@ -116,22 +118,6 @@ users ||--o| profiles : has_one
     int id PK
     int user_id FK
     int fight_id FK
-  }
-  find_spots {
-    int id PK
-    int user_id FK
-    int post_code
-  }
-  tools {
-    int id PK
-    string name
-    string description
-    string price
-  }
-  post_tool {
-    int id  PK
-    int post_id FK
-    int tool_id FK
   }
 
 
