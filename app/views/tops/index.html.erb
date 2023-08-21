@@ -20,7 +20,24 @@
     <div class="mockup-phone">
       <div class="camera"></div>
       <div class="display">
-        <div class="artboard artboard-demo phone-1">Hi.</div>
+        <div class="artboard artboard-demo phone-1">
+          <div>
+            <div class="card h-full bg-base-100 rounded-lg overflow-hidden">
+              <figure><%= image_tag 'bug_gokiburi', class: "lg:h-48 md:h-36 w-full object-cover object-center" %></figure>
+              <div class="card-body p-6">
+                <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"><%= l Time.now %></h2>
+                  <h1 class="card-title title-font text-lg font-medium text-gray-900 mb-3">
+                    ブラックキャップ
+                  </h1>
+                  <div class="badge badge-info">予防</div>
+                  <div class="card-actions justify-between">
+                    <div class="badge badge-lg badge-neutral">ゴキちゃん</div>
+                    <i class="fa-solid fa-heart" style="color: #e90c0c;"></i>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -30,12 +47,15 @@
     <div class="mockup-phone">
       <div class="camera"></div>
       <div class="display">
-        <div class="artboard artboard-demo phone-1">Hi.</div>
+        <div class="artboard artboard-demo phone-1">
+          <%= button_to t('defaults.fight_on'), '#', class: "w-32 h-32 bottom-10 start-10 m-5 text-white bg-accent border-4 border-accent-focus py-4 px-8 focus:outline-none hover:bg-amber-700 rounded-full text-xl" %>
+          <i class="fa-solid fa-arrow-pointer fa-2xl"></i>
+        </div>
       </div>
     </div>
     <div>
       <h1 class="text-5xl font-bold">仲間とリアルタイムで繋がりましょう</h1>
-      <p class="py-6">ゴキブリを発見したら、右下の「駆除中ボタン」を押しましょう。</br>駆除中の仲間と繋がることでゴキブリへの恐怖心が和らぎます。</p>
+      <p class="py-6">ゴキブリを発見したら、「退治開始」ボタンを押しましょう。</br>駆除中の仲間と繋がることでゴキブリへの恐怖心が和らぎます。</p>
       <%= link_to '駆除中の仲間を見る', fights_path, class: "btn btn-natural" %>
     </div>
   </div>

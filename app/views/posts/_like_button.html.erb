@@ -1,12 +1,12 @@
 <%= turbo_frame_tag post do %>
 	<% if current_user.like?(post) %>
 		<%= button_to like_path(current_user.likes.find_by(post_id: post.id)), class:"text-red-500",  method: :delete do %>
-        <i class="fa-solid fa-heart" style="color: #e90c0c;"></i>
+        <i class="fa-solid fa-heart fa-lg" style="color: #e90c0c;"></i>
         <%= post.likes.count %>
     <% end %>
 	<% else %>
 		<%= button_to likes_path(post_id: post.id), class: "text-rose-500",  method: :post do %>
-        <i class="fa-regular fa-heart"  style="color: #e90c0c;"></i>
+        <i class="fa-regular fa-heart fa-lg"  style="color: #e90c0c;"></i>
         <%= post.likes.count %>
     <% end %>
 	<% end %>
