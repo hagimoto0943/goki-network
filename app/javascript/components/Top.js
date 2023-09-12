@@ -1,6 +1,6 @@
 import React from "react";
 
-const Top = (props) => {
+const top = (props) => {
   const e = React.createElement;
   return e(
     "div",
@@ -23,4 +23,4 @@ const Top = (props) => {
     )
   );
 };
-export default Top;
+export default top;

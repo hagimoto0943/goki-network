@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Top from "./Top";
-import Questions from "./Questions";
-import Result from "./Result";
+import top from "./top";
+import questions from "./questions";
+import result from "./result";
 
 function index(props) {
   const [page, setPage] = useState("top");
@@ -83,15 +83,15 @@ function index(props) {
 
   const e = React.createElement;
   return page === "top"
-    ? e(Top, { onClick: pageHandler })
+    ? e(top, { onClick: pageHandler })
     : page === "questions"
-    ? e(Questions, {
+    ? e(questions, {
         onClick: pageHandler,
         increment: increment,
         decrement: decrement,
       })
     : page === "result"
-    ? e(Result, { scores: scores })
+    ? e(result, { scores: scores })
     : console.warn("pageの値が不正です");
 }
 

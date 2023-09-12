@@ -1,7 +1,7 @@
 import React from "react";
 // import axios from "axios";
 
-const Result = (props) => {
+const result = (props) => {
   const result = {
     mosquito: props.scores.mosquito,
     flies: props.scores.flies,
@@ -23,4 +23,4 @@ const Result = (props) => {
     `${result.sloth}`,
   ]);
 };
-export default Result;
+export default result;
