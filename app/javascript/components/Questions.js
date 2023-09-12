@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Questions = (props) => {
+const questions = (props) => {
   const questionData = [
     {
       questionNumber: 1,
@@ -322,4 +322,4 @@ const Questions = (props) => {
     )
   );
 };
-export default Questions;
+export default questions;
