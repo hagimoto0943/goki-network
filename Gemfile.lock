@@ -218,6 +218,10 @@ GEM
       rack (>= 1.2, < 4)
       snaky_hash (~> 2.0)
       version_gem (~> 1.1)
+    open-uri (0.3.0)
+      stringio
+      time
+      uri
     parallel (1.23.0)
     parser (3.2.2.3)
       ast (~> 2.4.1)
@@ -348,11 +352,14 @@ GEM
     ssrf_filter (1.1.1)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
+    stringio (3.0.8)
     tailwindcss-rails (2.0.29-x86_64-darwin)
       railties (>= 6.0.0)
     tailwindcss-rails (2.0.29-x86_64-linux)
       railties (>= 6.0.0)
     thor (1.2.2)
+    time (0.2.2)
+      date
     timeout (0.3.2)
     turbo-rails (1.4.0)
       actionpack (>= 6.0.0)
@@ -361,6 +368,7 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.4.2)
+    uri (0.12.2)
     version_gem (1.1.2)
     web-console (4.2.0)
       actionview (>= 6.0.0)
@@ -400,6 +408,8 @@ DEPENDENCIES
   jbuilder
   kaminari
   mysql2
+  nokogiri
+  open-uri
   pg
   pry-rails
   puma (~> 5.0)

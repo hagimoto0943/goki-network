@@ -8,5 +8,6 @@ class PagesController < ApplicationController
   end
 
   def content
+    @post = Post.find(1)
   end
 end

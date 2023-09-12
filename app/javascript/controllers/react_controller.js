@@ -9,7 +9,9 @@ export default class extends Controller {
     console.log("コネクト成功");
 
     const e = React.createElement;
-    const root = ReactDOM.createRoot(document.getElementById("root"));
-    root.render(e(App), root);
+    const root = document.getElementById("root");
+    const post = JSON.parse(root.dataset.json);
+    const createRoot = ReactDOM.createRoot(root);
+    createRoot.render(e(App, { post: { post } }), root);
   }
 }
