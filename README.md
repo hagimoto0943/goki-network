@@ -125,7 +125,6 @@ users ||--o| profiles : has_one
 
   countermeasures{
     int id PK
-    string type
     string title
     string body
     string image
@@ -142,6 +141,7 @@ users ||--o| profiles : has_one
     int id PK
     int tool_id FK
     int countermeasure_id FK
+    int post_id FK
     int type
   }
 
