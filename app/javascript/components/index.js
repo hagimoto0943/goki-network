@@ -3,7 +3,7 @@ import Top from "./Top";
 import Questions from "./Questions";
 import Result from "./Result";
 
-function App(props) {
+function index(props) {
   const [page, setPage] = useState("top");
   const pageHandler = (page) => setPage(page);
 
@@ -95,4 +95,4 @@ function App(props) {
     : console.warn("pageの値が不正です");
 }
 
-export default App;
+export default index;
