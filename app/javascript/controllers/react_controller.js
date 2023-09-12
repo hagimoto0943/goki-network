@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus";
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "../components/App";
+import index from "../components/index";
 
 // Connects to data-controller="react"
 export default class extends Controller {
@@ -12,6 +12,6 @@ export default class extends Controller {
     const root = document.getElementById("root");
     const post = JSON.parse(root.dataset.json);
     const createRoot = ReactDOM.createRoot(root);
-    createRoot.render(e(App, { post: { post } }), root);
+    createRoot.render(e(index, { post: { post } }), root);
   }
 }
