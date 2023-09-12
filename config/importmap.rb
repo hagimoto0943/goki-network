@@ -19,3 +19,6 @@ pin "#lib/adapters/http.js", to: "https://ga.jspm.io/npm:@jspm/core@2.0.1/nodeli
 pin "#lib/platform/node/classes/FormData.js", to: "https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/@empty.js"
 pin "#lib/platform/node/index.js", to: "https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/@empty.js"
 pin_all_from "app/javascript/components", under: "components"
+pin_all_from "app/javascript/components/questions.js", under: "questions"
+pin_all_from "app/javascript/components/top.js", under: "top"
+pin_all_from "app/javascript/components/result.js", under: "result"
