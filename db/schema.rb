@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_12_084325) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_12_093328) do
   create_table "countermeasures", charset: "utf8", force: :cascade do |t|
     t.string "title"
-    t.text "body"
+    t.string "body"
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -28,12 +28,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_12_084325) do
   end
 
   create_table "insect_types", charset: "utf8", force: :cascade do |t|
-    t.string "type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "types", null: false
+    t.bigint "post_id", null: false
     t.bigint "countermeasure_id", null: false
     t.bigint "tool_id", null: false
-    t.bigint "post_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["countermeasure_id"], name: "index_insect_types_on_countermeasure_id"
     t.index ["post_id"], name: "index_insect_types_on_post_id"
     t.index ["tool_id"], name: "index_insect_types_on_tool_id"
