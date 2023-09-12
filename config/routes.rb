@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   get '/privacy', to: 'pages#privacy'
   get '/rules', to: 'pages#rules'
+  get '/content', to: 'pages#content'
 
   resources :users, only: %i[new create edit update destroy]
   resources :posts, only: %i[index new create show edit update destroy] do

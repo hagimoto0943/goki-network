@@ -6,4 +6,8 @@ class PagesController < ApplicationController
 
   def rules
   end
+
+  def content
+    @post = Post.find(1)
+  end
 end

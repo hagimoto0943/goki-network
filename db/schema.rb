@@ -10,13 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_25_215632) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_12_084325) do
+  create_table "countermeasures", charset: "utf8", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "fights", charset: "utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.integer "status", default: 1, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_fights_on_user_id"
+  end
+
+  create_table "insect_types", charset: "utf8", force: :cascade do |t|
+    t.string "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "countermeasure_id", null: false
+    t.bigint "tool_id", null: false
+    t.bigint "post_id", null: false
+    t.index ["countermeasure_id"], name: "index_insect_types_on_countermeasure_id"
+    t.index ["post_id"], name: "index_insect_types_on_post_id"
+    t.index ["tool_id"], name: "index_insect_types_on_tool_id"
   end
 
   create_table "likes", charset: "utf8", force: :cascade do |t|
@@ -76,6 +96,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_25_215632) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
+    t.string "url"
   end
 
   create_table "users", charset: "utf8", force: :cascade do |t|
@@ -89,6 +111,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_25_215632) do
   end
 
   add_foreign_key "fights", "users"
+  add_foreign_key "insect_types", "countermeasures"
+  add_foreign_key "insect_types", "posts"
+  add_foreign_key "insect_types", "tools"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
   add_foreign_key "post_tools", "posts"

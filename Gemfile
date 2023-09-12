@@ -71,6 +71,9 @@ gem 'ransack', '~> 3.1'
 gem 'kaminari'
 # Rake Task
 gem 'whenever', require: false
+# OGP情報取得のため
+gem 'nokogiri'
+gem 'open-uri'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
