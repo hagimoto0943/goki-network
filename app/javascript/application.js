@@ -5,6 +5,3 @@ import "@rails/actioncable";
 import "channels";
 import "@fortawesome/fontawesome-free";
 import "components";
-import "./components/top.js";
-import "./components/result.js";
-import "./components/questions.js";
