@@ -2,6 +2,9 @@ import { Controller } from "@hotwired/stimulus";
 import React from "react";
 import ReactDOM from "react-dom";
 import index from "../components/index";
+import top from "../components/top";
+import questions from "../components/questions";
+import result from "../components/result";
 
 // Connects to data-controller="react"
 export default class extends Controller {
