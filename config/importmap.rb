@@ -12,4 +12,5 @@ pin "react-dom", to: "https://ga.jspm.io/npm:react-dom@18.2.0/index.js"
 pin "scheduler", to: "https://ga.jspm.io/npm:scheduler@0.23.0/index.js"
 pin "process", to: "https://ga.jspm.io/npm:process@0.11.10/browser.js"
 pin "object-assign", to: "https://ga.jspm.io/npm:object-assign@4.1.1/index.js"
+pin "components/index"
 pin_all_from "app/javascript/components", under: "components", preload: true
