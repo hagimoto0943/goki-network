@@ -1,3 +1,3 @@
 class Tool < ApplicationRecord
-  has_one :insect_type, dependent: :destroy
+  belongs_to :insect_type
 end

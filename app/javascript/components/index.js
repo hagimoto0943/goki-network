@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 export default function index(props) {
+  console.log(props.tool);
   const [page, setPage] = useState("top");
   const pageHandler = (page) => setPage(page);
 
@@ -88,7 +89,7 @@ export default function index(props) {
         decrement: decrement,
       })
     : page === "result"
-    ? e(result, { scores: scores })
+    ? e(result, { scores: scores, tool: props.tool })
     : console.warn("pageの値が不正です");
 }
 
@@ -451,13 +452,32 @@ export const result = (props) => {
   };
 
   const e = React.createElement;
-  return e("div", null, [
-    `${result.mosquito}`,
-    `${result.flies}`,
-    `${result.cockroach}`,
-    `${result.tick}`,
-    `${result.centipede}`,
-    `${result.clothingPest}`,
-    `${result.sloth}`,
-  ]);
+  return e(
+    "div",
+    null,
+    [
+      `${result.mosquito}`,
+      `${result.flies}`,
+      `${result.cockroach}`,
+      `${result.tick}`,
+      `${result.centipede}`,
+      `${result.clothingPest}`,
+      `${result.sloth}`,
+    ],
+    e("div", { className: "card w-96 bg-base-100 shadow-xl" }, [
+      e("figure", null, e("img", { src: `${props.tool.tool.image}` })),
+      e("div", { className: "card-body" }, [
+        e("h2", { className: "card-title" }, `${props.tool.tool.name}`),
+        e(
+          "div",
+          { className: "card-actions justify-end" },
+          e(
+            "a",
+            { className: "link link-neutral", href: `${props.tool.tool.url}` },
+            "詳細"
+          )
+        ),
+      ]),
+    ])
+  );
 };

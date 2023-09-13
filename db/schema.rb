@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_12_093328) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_13_083403) do
   create_table "countermeasures", charset: "utf8", force: :cascade do |t|
-    t.string "title"
-    t.string "body"
+    t.string "title", null: false
+    t.string "body", null: false
     t.string "image"
+    t.bigint "insect_type_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["insect_type_id"], name: "index_countermeasures_on_insect_type_id"
   end
 
   create_table "fights", charset: "utf8", force: :cascade do |t|
@@ -28,15 +30,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_12_093328) do
   end
 
   create_table "insect_types", charset: "utf8", force: :cascade do |t|
-    t.integer "types", null: false
-    t.bigint "post_id", null: false
-    t.bigint "countermeasure_id", null: false
-    t.bigint "tool_id", null: false
+    t.integer "type", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["countermeasure_id"], name: "index_insect_types_on_countermeasure_id"
-    t.index ["post_id"], name: "index_insect_types_on_post_id"
-    t.index ["tool_id"], name: "index_insect_types_on_tool_id"
   end
 
   create_table "likes", charset: "utf8", force: :cascade do |t|
@@ -66,6 +62,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_12_093328) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "post_types", default: 0, null: false
+    t.bigint "insect_type_id"
+    t.index ["insect_type_id"], name: "index_posts_on_insect_type_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -96,8 +94,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_12_093328) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "url", null: false
     t.string "image"
-    t.string "url"
+    t.bigint "insect_type_id", null: false
+    t.index ["insect_type_id"], name: "index_tools_on_insect_type_id"
   end
 
   create_table "users", charset: "utf8", force: :cascade do |t|
@@ -110,17 +110,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_12_093328) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "countermeasures", "insect_types"
   add_foreign_key "fights", "users"
-  add_foreign_key "insect_types", "countermeasures"
-  add_foreign_key "insect_types", "posts"
-  add_foreign_key "insect_types", "tools"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
   add_foreign_key "post_tools", "posts"
   add_foreign_key "post_tools", "tools"
+  add_foreign_key "posts", "insect_types"
   add_foreign_key "posts", "users"
   add_foreign_key "profiles", "tools"
   add_foreign_key "profiles", "users"
   add_foreign_key "supports", "fights"
   add_foreign_key "supports", "users"
+  add_foreign_key "tools", "insect_types"
 end

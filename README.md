@@ -65,9 +65,9 @@ Figma: https://www.figma.com/file/JpAWH1FYorwIhAAy87n7l4/Goki.net?node-id=0%3A1&
 
 ```mermaid
 erDiagram
-posts ||--o| insect_types : has_one
-countermeasures ||--o| insect_types : has_one
-tools ||--o| insect_types : has_one
+posts }o--|| insect_types : has_one
+countermeasures }o--|| insect_types : has_one
+tools }o--|| insect_types : has_one
 users ||--o{ posts : create
 users ||--o{ fights : create
 users ||--o{ likes : many_to_many
@@ -104,9 +104,11 @@ users ||--o| profiles : has_one
   posts {
     int id PK
     int user_id FK
+    int insect_type_id FK
     string title
     string body
     string thumbnail
+    int post_types
     datetime created_at
     datetime updated_at
   }
@@ -125,6 +127,7 @@ users ||--o| profiles : has_one
 
   countermeasures{
     int id PK
+    int insect_type_id FK
     string title
     string body
     string image
@@ -132,6 +135,7 @@ users ||--o| profiles : has_one
 
   tools{
     int id PK
+    int insect_type_id FK
     string name
     string image
     string url
@@ -139,9 +143,6 @@ users ||--o| profiles : has_one
 
   insect_types{
     int id PK
-    int tool_id FK
-    int countermeasure_id FK
-    int post_id FK
     int type
   }
 
