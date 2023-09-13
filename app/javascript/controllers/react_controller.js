@@ -10,8 +10,8 @@ export default class extends Controller {
 
     const e = React.createElement;
     const root = document.getElementById("root");
-    const post = JSON.parse(root.dataset.json);
+    const tool = JSON.parse(root.dataset.json);
     const createRoot = ReactDOM.createRoot(root);
-    createRoot.render(e(index, { post: { post } }), root);
+    createRoot.render(e(index, { tool: { tool } }), root);
   }
 }
