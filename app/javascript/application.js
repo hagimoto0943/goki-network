@@ -5,3 +5,4 @@ import "@rails/actioncable";
 import "channels";
 import "@fortawesome/fontawesome-free";
 import "components/index";
+import "components";
