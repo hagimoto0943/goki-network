@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 export default function index(props) {
-  console.log(props.tool);
   const [page, setPage] = useState("top");
   const pageHandler = (page) => setPage(page);
 
@@ -102,7 +101,7 @@ export const top = (props) => {
       "div",
       { className: "hero-content text-center" },
       e("div", { className: "max-w-md" }, [
-        e("h1", { className: "text-5xl font-bold" }, "アンケート"),
+        e("h1", { className: "text-5xl font-bold" }, "診断"),
         e("p", { className: "py-6" }, "あなたの現状を教えてください"),
         e(
           "button",
@@ -441,6 +440,7 @@ export const questions = (props) => {
 };
 
 export const result = (props) => {
+  console.log(props.tool.tool);
   const result = {
     mosquito: props.scores.mosquito,
     flies: props.scores.flies,
@@ -465,15 +465,19 @@ export const result = (props) => {
       `${result.sloth}`,
     ],
     e("div", { className: "card w-96 bg-base-100 shadow-xl" }, [
-      e("figure", null, e("img", { src: `${props.tool.tool.image}` })),
+      e("figure", null, e("img", { src: `${props.tool.tool[20].image}` })),
       e("div", { className: "card-body" }, [
-        e("h2", { className: "card-title" }, `${props.tool.tool.name}`),
+        e("h2", { className: "card-title" }, `${props.tool.tool[20].name}`),
         e(
           "div",
           { className: "card-actions justify-end" },
           e(
             "a",
-            { className: "link link-neutral", href: `${props.tool.tool.url}` },
+            {
+              className: "link link-neutral",
+              href: `${props.tool.tool[20].url}`,
+              target: "_blank",
+            },
             "詳細"
           )
         ),
