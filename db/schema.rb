@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_13_083403) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_13_082831) do
   create_table "countermeasures", charset: "utf8", force: :cascade do |t|
     t.string "title", null: false
     t.string "body", null: false
@@ -62,8 +62,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_13_083403) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "post_types", default: 0, null: false
-    t.bigint "insect_type_id"
-    t.index ["insect_type_id"], name: "index_posts_on_insect_type_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -116,7 +114,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_13_083403) do
   add_foreign_key "likes", "users"
   add_foreign_key "post_tools", "posts"
   add_foreign_key "post_tools", "tools"
-  add_foreign_key "posts", "insect_types"
   add_foreign_key "posts", "users"
   add_foreign_key "profiles", "tools"
   add_foreign_key "profiles", "users"
