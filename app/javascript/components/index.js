@@ -617,7 +617,7 @@ export const result = (props) => {
                     "a",
                     {
                       className: "btn btn-lg btn-neutral-focus",
-                      href: `${props.tool.tool.local_path}`,
+                      href: `${props.tool.tool.product_path}`,
                     },
                     "さっそく害虫対策を投稿する"
                   ),
@@ -1088,7 +1088,7 @@ export const result = (props) => {
                     "a",
                     {
                       className: "btn btn-lg btn-neutral-focus",
-                      href: `${props.tool.tool.local_path}`,
+                      href: `${props.tool.tool.product_path}`,
                     },
                     "さっそく害虫対策を投稿する"
                   ),
