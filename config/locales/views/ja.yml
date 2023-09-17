@@ -10,9 +10,9 @@ ja:
     fight_on: "退治開始"
     fight_off: "退治終了"
     fight_user: "退治中のユーザー"
-    index_post: "ゴキブリ対策一覧"
-    new_post: "ゴキブリ対策作成"
-    edit_post: "ゴキブリ対策編集"
+    index_post: "害虫対策一覧"
+    new_post: "害虫対策作成"
+    edit_post: "害虫対策編集"
     noting_posts: "ゴキプリ対策はまだありません"
     tool_search: "製品名で検索"
     search: "検索"
@@ -25,7 +25,7 @@ ja:
     post_types: "駆除or予防"
   users:
     new:
-      welcome: "会員登録してゴキブリを克服しましょう。"
+      welcome: "会員登録して害虫を克服しましょう。"
       title: "ユーザー登録"
       have_account?: "すでにアカウントをお持ちの方はこちら"
     create:
@@ -54,19 +54,19 @@ ja:
       success: "ログアウトしました"
   posts:
     index:
-      title: "ゴキブリ対策一覧"
+      title: "害虫対策一覧"
     new:
-      title: "ゴキブリ対策作成"
+      title: "害虫対策作成"
     edit:
-      title: "ゴキブリ対策編集"
+      title: "害虫対策編集"
     create:
-      success: "ゴキブリ対策を投稿しました"
-      fail: "ゴキブリ対策を投稿できませんでした"
+      success: "害虫対策を投稿しました"
+      fail: "害虫対策を投稿できませんでした"
     update:
-      success: "ゴキブリ対策を編集しました"
-      fail: "ゴキブリ対策を編集できませんでした"
+      success: "害虫対策を編集しました"
+      fail: "害虫対策を編集できませんでした"
     destroy:
-      success: "ゴキブリ対策を削除しました"
+      success: "害虫対策を削除しました"
   profiles:
     show:
       title: "プロフィール"
