@@ -50,6 +50,8 @@
 
 - Ruby 3.0.2
 - Rails 7.0.4.3
+- javascript
+- React 18.2.0
 - PostgreSQL
 - turbo-rails
 - Tailwind CSS

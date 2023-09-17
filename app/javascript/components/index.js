@@ -15,13 +15,13 @@ export default function index(props) {
   const increment = (answer) => {
     switch (answer) {
       case "mosquito":
-        setMosquito((mosquito) => mosquito + 1);
+        setMosquito((mosquito) => mosquito + 1.5);
         break;
       case "flies":
-        setFlies((flies) => flies + 1);
+        setFlies((flies) => flies + 1.5);
         break;
       case "cockroach":
-        setCockroach((cockroach) => cockroach + 1);
+        setCockroach((cockroach) => cockroach + 1.5);
         break;
       case "tick":
         setTick((tick) => tick + 1);
@@ -30,7 +30,7 @@ export default function index(props) {
         setCentipede((centipede) => centipede + 1);
         break;
       case "clothingPest":
-        setClothingPest((clothingPest) => clothingPest + 1);
+        setClothingPest((clothingPest) => clothingPest + 2);
         break;
       case "sloth":
         setSloth((sloth) => sloth + 1);
@@ -441,6 +441,7 @@ export const questions = (props) => {
 
 export const result = (props) => {
   console.log(props.tool.tool);
+
   const result = {
     mosquito: props.scores.mosquito,
     flies: props.scores.flies,
@@ -450,38 +451,768 @@ export const result = (props) => {
     clothingPest: props.scores.clothingPest,
     sloth: props.scores.sloth,
   };
+  //虫たちの順位付け
+  const keys = Object.keys(result);
+  const sortedKeys = keys.sort(function (a, b) {
+    return result[b] - result[a];
+  });
+  //虫の上位３決定
+  const fullResult = sortedKeys.slice(0, 3);
+  //虫の一位のみ決定
+  const partResult = sortedKeys.slice(0, 1);
+  //jsonのすべてのデータから該当する虫の対策、ツールを抽出
+  //extraction(fullResult[n]) = {tool: [{},{},....], countermeasure] [{},{},{},...]}
+  const extraction = (result) => {
+    if (result === "mosquito") {
+      return {
+        tool: props.tool.tool.tool.filter((item) => item.insect_type_id === 2),
+        countermeasure: props.tool.tool.countermeasure.filter(
+          (item) => item.insect_type_id === 1
+        ),
+      };
+    } else if (result === "flies") {
+      return {
+        tool: props.tool.tool.tool.filter((item) => item.insect_type_id === 3),
+        countermeasure: props.tool.tool.countermeasure.filter(
+          (item) => item.insect_type_id === 3
+        ),
+      };
+    } else if (result === "cockroach") {
+      return {
+        tool: props.tool.tool.tool.filter((item) => item.insect_type_id === 4),
+        countermeasure: props.tool.tool.countermeasure.filter(
+          (item) => item.insect_type_id === 4
+        ),
+      };
+    } else if (result === "tick") {
+      return {
+        tool: props.tool.tool.tool.filter((item) => item.insect_type_id === 5),
+        countermeasure: props.tool.tool.countermeasure.filter(
+          (item) => item.insect_type_id === 5
+        ),
+      };
+    } else if (result === "centipede") {
+      return {
+        tool: props.tool.tool.tool.filter((item) => item.insect_type_id === 6),
+        countermeasure: props.tool.tool.countermeasure.filter(
+          (item) => item.insect_type_id === 6
+        ),
+      };
+    } else if (result === "clothingPest") {
+      return {
+        tool: props.tool.tool.tool.filter((item) => item.insect_type_id === 7),
+        countermeasure: props.tool.tool.countermeasure.filter(
+          (item) => item.insect_type_id === 1
+        ),
+      };
+    }
+  };
+  //ツールをランダムに抽出する関数
+  function randomToolNum(array, num) {
+    let a = array;
+    let t = [];
+    let r = [];
+    let l = a.length;
+    let n = num < l ? num : l;
+    while (n-- > 0) {
+      let i = (Math.random() * l) | 0;
+      r[n] = t[i] || a[i];
+      --l;
+      t[i] = t[l] || a[l];
+    }
+    return r;
+  }
+
+  const randomToolNumForFull1 = randomToolNum(
+    extraction(fullResult[0]).tool,
+    3
+  );
+  const randomToolNumForFull2 = randomToolNum(
+    extraction(fullResult[1]).tool,
+    3
+  );
+  const randomToolNumForFull3 = randomToolNum(
+    extraction(fullResult[2]).tool,
+    3
+  );
+  const randomToolNumForPart = randomToolNum(extraction(partResult[0]).tool, 3);
+  const randomCountermeasureNumForFull1 = Math.floor(
+    Math.random() * extraction(fullResult[0]).countermeasure.length
+  );
+  const randomCountermeasureNumForFull2 = Math.floor(
+    Math.random() * extraction(fullResult[1]).countermeasure.length
+  );
+  const randomCountermeasureNumForFull3 = Math.floor(
+    Math.random() * extraction(fullResult[2]).countermeasure.length
+  );
+  const randomCountermeasureNumForPart = Math.floor(
+    Math.random() * extraction(partResult[0]).countermeasure.length
+  );
 
   const e = React.createElement;
-  return e(
-    "div",
-    null,
-    [
-      `${result.mosquito}`,
-      `${result.flies}`,
-      `${result.cockroach}`,
-      `${result.tick}`,
-      `${result.centipede}`,
-      `${result.clothingPest}`,
-      `${result.sloth}`,
-    ],
-    e("div", { className: "card w-96 bg-base-100 shadow-xl" }, [
-      e("figure", null, e("img", { src: `${props.tool.tool[20].image}` })),
-      e("div", { className: "card-body" }, [
-        e("h2", { className: "card-title" }, `${props.tool.tool[20].name}`),
+  return result.sloth > 0
+    ? [
         e(
           "div",
-          { className: "card-actions justify-end" },
-          e(
-            "a",
-            {
-              className: "link link-neutral",
-              href: `${props.tool.tool[20].url}`,
-              target: "_blank",
-            },
-            "詳細"
-          )
+          {
+            className: "container my-16 mx-auto text-neutral md:px-6",
+          },
+          e("section", { className: "mb-32" }, [
+            e(
+              "h2",
+              { className: "mb-16 text-center text-2xl font-bold" },
+              "あなたのおすすめ対策"
+            ),
+            e("div", { className: "mb-16 flex flex-wrap" }, [
+              e(
+                "div",
+                {
+                  className:
+                    "mb-6 w-full shrink-0 grow-0 basis-auto lg:mb-0 lg:w-6/12 lg:pr-6",
+                },
+                e(
+                  "div",
+                  {
+                    className:
+                      "ripple relative overflow-hidden rounded-lg bg-cover bg-[50%] bg-no-repeat",
+                  },
+                  e("img", {
+                    src: `${
+                      extraction(fullResult[0]).countermeasure[
+                        randomCountermeasureNumForFull1
+                      ].image
+                    }`,
+                    className: "w-full",
+                  })
+                )
+              ),
+              e(
+                "div",
+                {
+                  className:
+                    "w-full shrink-0 grow-0 basis-auto lg:w-6/12 lg:pl-6",
+                },
+                [
+                  e(
+                    "h3",
+                    { className: "mb-4 text-2xl text-neutral font-bold" },
+                    `1.${
+                      extraction(fullResult[0]).countermeasure[
+                        randomCountermeasureNumForFull1
+                      ].title
+                    }`
+                  ),
+                  e(
+                    "p",
+                    {
+                      className: "mb-6 text-neutral-500",
+                    },
+                    `${
+                      extraction(fullResult[0]).countermeasure[
+                        randomCountermeasureNumForFull1
+                      ].body
+                    }`
+                  ),
+                  e(
+                    "a",
+                    {
+                      className: "btn btn-lg btn-neutral-focus",
+                      href: `${props.tool.tool.local_path}`,
+                    },
+                    "さっそく害虫対策を投稿する"
+                  ),
+                ]
+              ),
+            ]),
+            e("div", { className: "mb-16 flex flex-wrap" }, [
+              e(
+                "div",
+                {
+                  className:
+                    "mb-6 w-full shrink-0 grow-0 basis-auto lg:mb-0 lg:w-6/12 lg:pr-6",
+                },
+                e(
+                  "div",
+                  {
+                    className:
+                      "ripple relative overflow-hidden rounded-lg bg-cover bg-[50%] bg-no-repeat",
+                  },
+                  e("img", {
+                    src: `${
+                      extraction(fullResult[1]).countermeasure[
+                        randomCountermeasureNumForFull2
+                      ].image
+                    }`,
+                    className: "w-full",
+                  })
+                )
+              ),
+              e(
+                "div",
+                {
+                  className:
+                    "w-full shrink-0 grow-0 basis-auto lg:w-6/12 lg:pl-6",
+                },
+                [
+                  e(
+                    "h3",
+                    { className: "mb-4 text-2xl font-bold text-neutral" },
+                    `2.${
+                      extraction(fullResult[1]).countermeasure[
+                        randomCountermeasureNumForFull2
+                      ].title
+                    }`
+                  ),
+                  e(
+                    "p",
+                    {
+                      className: "mb-6 text-neutral-500",
+                    },
+                    `${
+                      extraction(fullResult[1]).countermeasure[
+                        randomCountermeasureNumForFull2
+                      ].body
+                    }`
+                  ),
+                ]
+              ),
+            ]),
+          ])
         ),
-      ]),
-    ])
-  );
+        e(
+          "h1",
+          {
+            className: "text-4xl font-bold text-center mb-4 pb-4 text-neutral",
+          },
+          "おすすめ対策アイテム"
+        ),
+        e("div", { className: "flex flex-wrap -m-4 py-6 mx-auto" }, [
+          e(
+            "div",
+            {
+              className: "card card-compact w-96 bg-base-100 shadow-xl mx-auto",
+            },
+            [
+              e(
+                "figure",
+                null,
+                e("img", {
+                  src: `${randomToolNumForFull1[0].image}`,
+                })
+              ),
+              e(
+                "div",
+                { className: "card-body" },
+                e(
+                  "div",
+                  { className: "card-title" },
+                  `${randomToolNumForFull1[0].name}`
+                )
+              ),
+              e(
+                "div",
+                { className: "card-actions justify-end" },
+                e(
+                  "a",
+                  {
+                    className: "link link-neutral mr-4 mb-4",
+                    href: `${randomToolNumForFull1[0].url}`,
+                    target: "_blank",
+                  },
+                  "詳細"
+                )
+              ),
+            ]
+          ),
+          e(
+            "div",
+            {
+              className: "card card-compact w-96 bg-base-100 shadow-xl mx-auto",
+            },
+            [
+              e(
+                "figure",
+                null,
+                e("img", {
+                  src: `${randomToolNumForFull1[1].image}`,
+                })
+              ),
+              e(
+                "div",
+                { className: "card-body" },
+                e(
+                  "div",
+                  { className: "card-title" },
+                  `${randomToolNumForFull1[1].name}`
+                )
+              ),
+              e(
+                "div",
+                { className: "card-actions justify-end" },
+                e(
+                  "a",
+                  {
+                    className: "link link-neutral mr-4 mb-4",
+                    href: `${randomToolNumForFull1[1].url}`,
+                    target: "_blank",
+                  },
+                  "詳細"
+                )
+              ),
+            ]
+          ),
+          e(
+            "div",
+            {
+              className: "card card-compact w-96 bg-base-100 shadow-xl mx-auto",
+            },
+            [
+              e(
+                "figure",
+                null,
+                e("img", {
+                  src: `${randomToolNumForFull1[2].image}`,
+                })
+              ),
+              e(
+                "div",
+                { className: "card-body" },
+                e(
+                  "div",
+                  { className: "card-title" },
+                  `${randomToolNumForFull1[2].name}`
+                )
+              ),
+              e(
+                "div",
+                { className: "card-actions justify-end" },
+                e(
+                  "a",
+                  {
+                    className: "link link-neutral mr-4 mb-4",
+                    href: `${randomToolNumForFull1[2].url}`,
+                    target: "_blank",
+                  },
+                  "詳細"
+                )
+              ),
+            ]
+          ),
+          e(
+            "div",
+            {
+              className: "card card-compact w-96 bg-base-100 shadow-xl mx-auto",
+            },
+            [
+              e(
+                "figure",
+                null,
+                e("img", {
+                  src: `${randomToolNumForFull2[0].image}`,
+                })
+              ),
+              e(
+                "div",
+                { className: "card-body" },
+                e(
+                  "div",
+                  { className: "card-title" },
+                  `${randomToolNumForFull2[0].name}`
+                )
+              ),
+              e(
+                "div",
+                { className: "card-actions justify-end" },
+                e(
+                  "a",
+                  {
+                    className: "link link-neutral mr-4 mb-4",
+                    href: `${randomToolNumForFull2[0].url}`,
+                    target: "_blank",
+                  },
+                  "詳細"
+                )
+              ),
+            ]
+          ),
+          e(
+            "div",
+            {
+              className: "card card-compact w-96 bg-base-100 shadow-xl mx-auto",
+            },
+            [
+              e(
+                "figure",
+                null,
+                e("img", {
+                  src: `${randomToolNumForFull2[1].image}`,
+                })
+              ),
+              e(
+                "div",
+                { className: "card-body" },
+                e(
+                  "div",
+                  { className: "card-title" },
+                  `${randomToolNumForFull2[1].name}`
+                )
+              ),
+              e(
+                "div",
+                { className: "card-actions justify-end" },
+                e(
+                  "a",
+                  {
+                    className: "link link-neutral mr-4 mb-4",
+                    href: `${randomToolNumForFull2[1].url}`,
+                    target: "_blank",
+                  },
+                  "詳細"
+                )
+              ),
+            ]
+          ),
+          e(
+            "div",
+            {
+              className: "card card-compact w-96 bg-base-100 shadow-xl mx-auto",
+            },
+            [
+              e(
+                "figure",
+                null,
+                e("img", {
+                  src: `${randomToolNumForFull2[2].image}`,
+                })
+              ),
+              e(
+                "div",
+                { className: "card-body" },
+                e(
+                  "div",
+                  { className: "card-title" },
+                  `${randomToolNumForFull2[2].name}`
+                )
+              ),
+              e(
+                "div",
+                { className: "card-actions justify-end" },
+                e(
+                  "a",
+                  {
+                    className: "link link-neutral mr-4 mb-4",
+                    href: `${randomToolNumForFull2[2].url}`,
+                    target: "_blank",
+                  },
+                  "詳細"
+                )
+              ),
+            ]
+          ),
+          e(
+            "div",
+            {
+              className: "card card-compact w-96 bg-base-100 shadow-xl mx-auto",
+            },
+            [
+              e(
+                "figure",
+                null,
+                e("img", {
+                  src: `${randomToolNumForFull3[0].image}`,
+                })
+              ),
+              e(
+                "div",
+                { className: "card-body" },
+                e(
+                  "div",
+                  { className: "card-title" },
+                  `${randomToolNumForFull3[0].name}`
+                )
+              ),
+              e(
+                "div",
+                { className: "card-actions justify-end" },
+                e(
+                  "a",
+                  {
+                    className: "link link-neutral mr-4 mb-4",
+                    href: `${randomToolNumForFull3[0].url}`,
+                    target: "_blank",
+                  },
+                  "詳細"
+                )
+              ),
+            ]
+          ),
+          e(
+            "div",
+            {
+              className: "card card-compact w-96 bg-base-100 shadow-xl mx-auto",
+            },
+            [
+              e(
+                "figure",
+                null,
+                e("img", {
+                  src: `${randomToolNumForFull3[1].image}`,
+                })
+              ),
+              e(
+                "div",
+                { className: "card-body" },
+                e(
+                  "div",
+                  { className: "card-title" },
+                  `${randomToolNumForFull3[1].name}`
+                )
+              ),
+              e(
+                "div",
+                { className: "card-actions justify-end" },
+                e(
+                  "a",
+                  {
+                    className: "link link-neutral mr-4 mb-4",
+                    href: `${randomToolNumForFull3[1].url}`,
+                    target: "_blank",
+                  },
+                  "詳細"
+                )
+              ),
+            ]
+          ),
+          e(
+            "div",
+            {
+              className: "card card-compact w-96 bg-base-100 shadow-xl mx-auto",
+            },
+            [
+              e(
+                "figure",
+                null,
+                e("img", {
+                  src: `${randomToolNumForFull3[2].image}`,
+                })
+              ),
+              e(
+                "div",
+                { className: "card-body" },
+                e(
+                  "div",
+                  { className: "card-title" },
+                  `${randomToolNumForFull3[2].name}`
+                )
+              ),
+              e(
+                "div",
+                { className: "card-actions justify-end" },
+                e(
+                  "a",
+                  {
+                    className: "link link-neutral mr-4 mb-4",
+                    href: `${randomToolNumForFull3[2].url}`,
+                    target: "_blank",
+                  },
+                  "詳細"
+                )
+              ),
+            ]
+          ),
+        ]),
+      ]
+    : e("div", null, [
+        e(
+          "div",
+          { className: "container my-16 mx-auto md:px-6" },
+          e("section", { className: "mb-32" }, [
+            e(
+              "h2",
+              {
+                className: "mb-16 text-center text-2xl font-bold text-neutral",
+              },
+              "あなたのおすすめ対策"
+            ),
+            e("div", { className: "mb-16 flex flex-wrap" }, [
+              e(
+                "div",
+                {
+                  className:
+                    "mb-6 w-full shrink-0 grow-0 basis-auto lg:mb-0 lg:w-6/12 lg:pr-6",
+                },
+                e(
+                  "div",
+                  {
+                    className:
+                      "ripple relative overflow-hidden rounded-lg bg-cover bg-[50%] bg-no-repeat",
+                  },
+                  e("img", {
+                    src: `${
+                      extraction(partResult[0]).countermeasure[
+                        randomCountermeasureNumForPart
+                      ].image
+                    }`,
+                    className: "w-full",
+                  })
+                )
+              ),
+              e(
+                "div",
+                {
+                  className:
+                    "w-full shrink-0 grow-0 basis-auto lg:w-6/12 lg:pl-6",
+                },
+                [
+                  e(
+                    "h3",
+                    { className: "mb-4 text-2xl font-bold text-neutral" },
+                    `1.${
+                      extraction(partResult[0]).countermeasure[
+                        randomCountermeasureNumForPart
+                      ].title
+                    }`
+                  ),
+                  e(
+                    "p",
+                    {
+                      className: "mb-6 text-neutral-500",
+                    },
+                    `${
+                      extraction(partResult[0]).countermeasure[
+                        randomCountermeasureNumForPart
+                      ].body
+                    }`
+                  ),
+                  e(
+                    "a",
+                    {
+                      className: "btn btn-lg btn-neutral-focus",
+                      href: `${props.tool.tool.local_path}`,
+                    },
+                    "さっそく害虫対策を投稿する"
+                  ),
+                ]
+              ),
+            ]),
+          ])
+        ),
+        e(
+          "h1",
+          {
+            className: "text-4xl font-bold text-center mb-4 pb-4 text-neutral",
+          },
+          "おすすめ対策アイテム"
+        ),
+        e("div", { className: "flex flex-wrap -m-3 py-6 mx-auto" }, [
+          e(
+            "div",
+            {
+              className: "card card-compact w-96 bg-base-100 shadow-xl mx-auto",
+            },
+            [
+              e(
+                "figure",
+                null,
+                e("img", {
+                  src: `${randomToolNumForPart[0].image}`,
+                })
+              ),
+              e(
+                "div",
+                { className: "card-body" },
+                e(
+                  "div",
+                  { className: "card-title" },
+                  `${randomToolNumForPart[0].name}`
+                )
+              ),
+              e(
+                "div",
+                { className: "card-actions justify-end" },
+                e(
+                  "a",
+                  {
+                    className: "link link-neutral mr-4 mb-4",
+                    href: `${randomToolNumForPart[0].url}`,
+                  },
+                  "詳細"
+                )
+              ),
+            ]
+          ),
+          e(
+            "div",
+            {
+              className: "card card-compact w-96 bg-base-100 shadow-xl mx-auto",
+            },
+            [
+              e(
+                "figure",
+                null,
+                e("img", {
+                  src: `${randomToolNumForPart[1].image}`,
+                })
+              ),
+              e(
+                "div",
+                { className: "card-body" },
+                e(
+                  "div",
+                  { className: "card-title" },
+                  `${randomToolNumForPart[1].name}`
+                )
+              ),
+              e(
+                "div",
+                { className: "card-actions justify-end" },
+                e(
+                  "a",
+                  {
+                    className: "link link-neutral mr-4 mb-4",
+                    href: `${randomToolNumForPart[1].url}`,
+                  },
+                  "詳細"
+                )
+              ),
+            ]
+          ),
+          e(
+            "div",
+            {
+              className: "card card-compact w-96 bg-base-100 shadow-xl mx-auto",
+            },
+            [
+              e(
+                "figure",
+                null,
+                e("img", {
+                  src: `${randomToolNumForPart[2].image}`,
+                })
+              ),
+              e(
+                "div",
+                { className: "card-body" },
+                e(
+                  "div",
+                  { className: "card-title" },
+                  `${randomToolNumForPart[2].name}`
+                )
+              ),
+              e(
+                "div",
+                { className: "card-actions justify-end" },
+                e(
+                  "a",
+                  {
+                    className: "link link-neutral mr-4 mb-4",
+                    href: `${randomToolNumForPart[2].url}`,
+                  },
+                  "詳細"
+                )
+              ),
+            ]
+          ),
+        ]),
+      ]);
 };

@@ -1,0 +1,69 @@
+
+<div class="container my-24 mx-auto md:px-6 text-neutral-focus">
+  <section class="mb-32">
+    <h2 class="my-16 text-center text-3xl font-bold">害虫対策を投稿しましょう！</h2>
+    <div class="mb-16 flex flex-wrap">
+      <div class="mb-6 w-full shrink-0 grow-0 basis-auto lg:mb-0 lg:w-6/12 lg:pr-6">
+        <div
+          class="ripple relative overflow-hidden rounded-lg bg-cover bg-[50%] bg-no-repeat shadow-lg dark:shadow-black/20"
+          data-te-ripple-init data-te-ripple-color="light">
+          <div class="mockup-window border bg-base-300">
+            <div class="flex justify-center px-4 py-16 bg-base-200">
+              <%=image_tag "goki_screen_1" %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full shrink-0 grow-0 basis-auto lg:w-6/12 lg:pl-6">
+        <h3 class="mb-4 text-2xl font-bold">STEP1: 診断テストを受けましょう</h3>
+        <p class="mb-6 text-neutral-500 dark:text-neutral-300">
+          身の回りの環境や自身の生活に関する簡単な質問に答えることで、適切な害虫対策を知りましょう。
+        </p>
+      </div>
+    </div>
+    <div class="mb-16 flex flex-wrap lg:flex-row-reverse">
+      <div class="mb-6 w-full shrink-0 grow-0 basis-auto lg:mb-0 lg:w-6/12 lg:pr-6">
+        <div
+          class="ripple relative overflow-hidden rounded-lg bg-cover bg-[50%] bg-no-repeat shadow-lg dark:shadow-black/20"
+          data-te-ripple-init data-te-ripple-color="light">
+          <div class="mockup-window border bg-base-300">
+            <div class="flex justify-center px-4 py-16 bg-base-200">
+              <%=image_tag "goki_screen_2" %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full shrink-0 grow-0 basis-auto lg:w-6/12 lg:pl-6">
+        <h3 class="mb-4 text-2xl font-bold">STEP2: 診断テスト結果をもとに害虫対策をしましょう。</h3>
+        <p class="mb-6 text-neutral-500 dark:text-neutral-300">
+          診断の点数を元にあなたに合った害虫対策法とおすすめ対策グッズを紹介します。
+        </p>
+      </div>
+    </div>
+    <div class="mb-16 flex flex-wrap">
+      <div class="mb-6 w-full shrink-0 grow-0 basis-auto lg:mb-0 lg:w-6/12 lg:pr-6">
+        <div
+          class="ripple relative overflow-hidden rounded-lg bg-cover bg-[50%] bg-no-repeat shadow-lg dark:shadow-black/20"
+          data-te-ripple-init data-te-ripple-color="light">
+          <div class="mockup-window border bg-base-300">
+            <div class="flex justify-center px-4 py-16 bg-base-200">
+              <%=image_tag "goki_screen_3" %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full shrink-0 grow-0 basis-auto lg:w-6/12 lg:pl-6">
+        <h3 class="mb-4 text-2xl font-bold">STEP3: 自分の害虫対策をみんなとシェアしましょう。</h3>
+        <p class="mb-6 text-neutral-500 dark:text-neutral-300">
+          診断結果を参考にして害虫対策をしましょう。実際に害虫対策をしていなくても、診断結果などをシェアするだけでもOK!
+        </p>
+      </div>
+    </div>
+    <div class = "mx-auto flex justify-center">
+      <%= button_to "診断テストを受ける", content_path, method: :get, class: "btn btn-lg btn-neutral-focus " %>
+    </div>
+  </section>
+</div>
