@@ -8,6 +8,7 @@
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "https://cdn.jsdelivr.net/npm/daisyui@2.6.0/dist/full.css" %>
     <%= javascript_importmap_tags %>
+    <%= display_meta_tags(default_meta_tags) %>
     <%= favicon_link_tag('favicon.ico') %>
     <% content_for :head do %>
       <%= javascript_import_module_tag "components/index" %>

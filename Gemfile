@@ -74,6 +74,7 @@ gem 'whenever', require: false
 # OGP情報取得のため
 gem 'nokogiri'
 gem 'open-uri'
+gem "meta-tags"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
