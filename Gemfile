@@ -69,11 +69,12 @@ gem 'enum_help'
 gem 'ransack', '~> 3.1'
 # ページネーション
 gem 'kaminari'
-# Rake Task
+# Rake Taskでの定期処理のため
 gem 'whenever', require: false
 # OGP情報取得のため
 gem 'nokogiri'
 gem 'open-uri'
+# OGP情報作成のため
 gem "meta-tags"
 
 group :development, :test do
