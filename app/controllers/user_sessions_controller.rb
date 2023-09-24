@@ -25,14 +25,8 @@ class UserSessionsController < ApplicationController
     if current_user
       redirect_to posts_path, warning: t('.alert')
     else
-      random_value = SecureRandom.hex.to_s
-      @guest_user = User.create!(
-        name: 'ゲスト',
-        email: "test_#{random_value}@example.com",
-        password: random_value,
-        password_confirmation: random_value
-      )
-      auto_login(@guest_user)
+      @user = User.guest_create
+      auto_login(@user)
       redirect_to explanation_path, success: t('.success')
     end
   end

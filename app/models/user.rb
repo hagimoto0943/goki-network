@@ -42,4 +42,15 @@ class User < ApplicationRecord
   def support?(fight)
     support_fghts.include?(fight)
   end
+
+  def self.guest_create
+    random_value = SecureRandom.hex.to_s
+      guest_user = User.create!(
+        name: 'ゲスト',
+        email: "test_#{random_value}@example.com",
+        password: random_value,
+        password_confirmation: random_value
+      )
+      return guest_user
+  end
 end
