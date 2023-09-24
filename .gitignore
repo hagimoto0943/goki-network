@@ -43,5 +43,3 @@
 
 /node_modules
 /public/uploads
-.DS_Store
-yarn-error.log
