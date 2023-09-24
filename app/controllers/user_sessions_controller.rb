@@ -6,8 +6,7 @@ class UserSessionsController < ApplicationController
 
   def create
     @user = login(params[:email], params[:password])
-    user_bedinner = User.find_by(email: params[:email])
-    if @user && user_bedinner.posts
+    if @user&.posts
       redirect_back_or_to posts_path, success: t('.success')
     elsif @user
       redirect_back_or_to explanation_path, success: t('.success')
