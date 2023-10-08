@@ -101,8 +101,16 @@ export const top = (props) => {
       "div",
       { className: "hero-content text-center" },
       e("div", { className: "max-w-md" }, [
-        e("h1", { className: "text-5xl font-bold" }, "診断"),
-        e("p", { className: "py-6" }, "あなたの現状を教えてください"),
+        e(
+          "h1",
+          { className: "text-5xl font-bold" },
+          "自分の家を診断しましょう"
+        ),
+        e(
+          "p",
+          { className: "py-6" },
+          "アンケートに答えることで、あなたの適切なアプリを診断します！"
+        ),
         e(
           "button",
           {

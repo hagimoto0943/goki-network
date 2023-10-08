@@ -1,5 +1,19 @@
 <% content_for(:title, t('.title')) %>
-<%= render 'shared/live_alert'%>
+<div class = "flex">
+  <% if @fights.present? %>
+    <% @fights.each do |fight| %>
+      <%= render 'fights/sideber', {fight: fight}%>
+    <% end %>
+  <% else %>
+    <aside>
+      <div class="h-full py-8 overflow-y-auto bg-base-200 border-l border-r sm:w-64 w-60">
+        <h1 class="px-5 text-2xl text-center font-medium text-gray-800">退治中のユーザー</h1>
+        <div class="mt-8 space-y-4">
+          <p class = "text-center">退治中のユーザーはいません</p>
+        </div>
+      </div>
+    </aside>
+  <% end %>
   <section class="text-gray-600  body-font bg-base-200">
     <div class="container px-5 py-24 mx-auto">
       <div class="flex flex-col text-center w-full mb-6">
@@ -18,3 +32,4 @@
       </div>
     </div>
   </section>
+</div>
