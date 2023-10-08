@@ -1,9 +1,7 @@
 <% content_for(:title, t('.title')) %>
 <div class = "flex">
   <% if @fights.present? %>
-    <% @fights.each do |fight| %>
-      <%= render 'fights/sideber', {fight: fight}%>
-    <% end %>
+    <%= render 'fights/sideber', {fights: @fights}%>
   <% else %>
     <aside>
       <div class="h-full py-8 overflow-y-auto bg-base-200 border-l border-r sm:w-64 w-60">

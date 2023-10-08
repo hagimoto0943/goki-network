@@ -3,7 +3,8 @@
     <h1 class="px-5 text-2xl text-center font-medium text-gray-800">退治中のユーザー</h1>
     <div class="mt-8 space-y-4">
         <div id = "sideber"></div>
-        <button class="flex items-center w-full px-5 py-2 transition-colors duration-200 gap-x-2 ">
+        <% fights.each do |fight| %>
+          <button class="flex items-center w-full px-5 py-2 transition-colors duration-200 gap-x-2 ">
             <% if fight.user.profile %>
                   <%= image_tag fight.user.profile.avatar.url, class: "object-cover w-8 h-8 rounded-full" %>
                 <% else %>
@@ -13,7 +14,8 @@
                 <h1 class="text-sm font-medium text-gray-700 capitalize"><%= fight.user.name %></h1>
                 <p class="text-xs text-gray-500 "><%= l fight.user.created_at %></p>
             </div>
-        </button>
+          </button>
+        <% end %>
     </div>
   </div>
 </aside>
