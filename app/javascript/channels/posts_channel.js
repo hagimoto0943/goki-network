@@ -21,6 +21,7 @@ consumer.subscriptions.create("PostsChannel", {
           <h1 class="text-sm font-medium text-gray-700 capitalize">${name}</h1>
           <p class="text-xs text-gray-500 ">${date}</p>
         </div>
+        <div class="badge badge-success badge-sm mt-3"></div>
       </div>
         `;
     const alertMessage = document.getElementById("sideber");
