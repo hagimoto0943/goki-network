@@ -12,7 +12,7 @@ class FightsController < ApplicationController
           created_at: @fight.created_at.strftime('%Y/%m/%d %H:%M')
         }
       )
-      redirect_to fights_path, success: t('.success')
+      redirect_to posts_path, success: t('.success')
     else
       flash.now[:error] = t('.fail')
       render :index
@@ -23,7 +23,7 @@ class FightsController < ApplicationController
     @fight = current_user.fights.find_by(status: 1)
     @fights = Fight.where(status: 1).includes(:user).order(created_at: :desc)
     if @fight.toggle_status!
-      redirect_to fights_path, success: t('.success')
+      redirect_to posts_path, success: t('.success')
     else
       flash.now[:error] = t('.fail')
       render :index
