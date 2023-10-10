@@ -1,12 +1,12 @@
 <div class="navbar bg-base-100 text-neutral-conten">
   <div class="navbar-start ml-4">
     <div class="dropdown">
-      <label tabindex="0" class="btn btn-ghost btn-circle">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+      <label tabindex="0" class="btn btn-neutral">
+        害虫対策
       </label>
       <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 border rounded-box w-52">
         <li><%= link_to t('defaults.index_post'), posts_path %></li>
-        <li><%= link_to t('defaults.fight_user'), fights_path %></li>
+        <li><%= link_to t('defaults.new_post'), new_post_path %></li>
       </ul>
     </div>
   </div>
@@ -29,9 +29,6 @@
       <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 border rounded-box w-52">
         <li class = "mx-auto">
           <%= link_to current_user.name, profile_path(current_user) %>
-        </li>
-        <li class = "mx-auto">
-          <%= link_to t('defaults.new_post'), new_post_path %>
         </li>
         <li class = "mx-auto">
           <%= link_to t('defaults.for_tools'), tools_path %>

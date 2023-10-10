@@ -15,13 +15,13 @@ consumer.subscriptions.create("PostsChannel", {
     const name = data.name;
     const date = data.created_at;
     const message = `
-    <button class="flex items-center w-full px-5 py-2 transition-colors duration-200 gap-x-2 ">
+    <div class="flex justify-center w-full px-2 py-2 transition-colors duration-200 gap-x-2 animate-pulse">
       <i class="fa-solid fa-user w-8 h-8 rounded-full p-2 bg-neutral-400"></i>
         <div class="text-left rtl:text-right">
-            <h1 class="text-sm font-medium text-gray-700 capitalize">${name}</h1>
-            <p class="text-xs text-gray-500 ">${date}</p>
+          <h1 class="text-sm font-medium text-gray-700 capitalize">${name}</h1>
+          <p class="text-xs text-gray-500 ">${date}</p>
         </div>
-    </button>
+      </div>
         `;
     const alertMessage = document.getElementById("sideber");
     alertMessage.insertAdjacentHTML("afterbegin", message);
