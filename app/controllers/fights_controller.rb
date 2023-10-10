@@ -1,7 +1,4 @@
 class FightsController < ApplicationController
-  def index
-    @fights = Fight.where(status: 1).includes(:user).order(created_at: :desc).page(params[:page])
-  end
 
   def create
     @fight = current_user.fights.new
