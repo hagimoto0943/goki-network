@@ -720,7 +720,8 @@ export const result = (props) => {
           e(
             "div",
             {
-              className: "card card-compact w-96 bg-base-100 shadow-xl mx-auto",
+              className:
+                "card card-compact w-96 bg-base-100 rounded-lg overflow-hidden mx-auto mb-2",
             },
             [
               e(
@@ -728,6 +729,7 @@ export const result = (props) => {
                 null,
                 e("img", {
                   src: `${randomToolNumForFull1[0].image}`,
+                  class: "lg:h-48 md:h-36 w-full object-cover object-center",
                 })
               ),
               e(
@@ -757,7 +759,8 @@ export const result = (props) => {
           e(
             "div",
             {
-              className: "card card-compact w-96 bg-base-100 shadow-xl mx-auto",
+              className:
+                "card card-compact w-96 bg-base-100 rounded-lg overflow-hidden mx-auto mb-2",
             },
             [
               e(
@@ -765,6 +768,7 @@ export const result = (props) => {
                 null,
                 e("img", {
                   src: `${randomToolNumForFull1[1].image}`,
+                  class: "lg:h-48 md:h-36 w-full object-cover object-center",
                 })
               ),
               e(
@@ -802,6 +806,7 @@ export const result = (props) => {
                 null,
                 e("img", {
                   src: `${randomToolNumForFull1[2].image}`,
+                  class: "lg:h-48 md:h-36 w-full object-cover object-center",
                 })
               ),
               e(
@@ -839,6 +844,7 @@ export const result = (props) => {
                 null,
                 e("img", {
                   src: `${randomToolNumForFull2[0].image}`,
+                  class: "lg:h-48 md:h-36 w-full object-cover object-center",
                 })
               ),
               e(
@@ -876,6 +882,7 @@ export const result = (props) => {
                 null,
                 e("img", {
                   src: `${randomToolNumForFull2[1].image}`,
+                  class: "lg:h-48 md:h-36 w-full object-cover object-center",
                 })
               ),
               e(
@@ -913,6 +920,7 @@ export const result = (props) => {
                 null,
                 e("img", {
                   src: `${randomToolNumForFull2[2].image}`,
+                  class: "lg:h-48 md:h-36 w-full object-cover object-center",
                 })
               ),
               e(
@@ -950,6 +958,7 @@ export const result = (props) => {
                 null,
                 e("img", {
                   src: `${randomToolNumForFull3[0].image}`,
+                  class: "lg:h-48 md:h-36 w-full object-cover object-center",
                 })
               ),
               e(
@@ -987,6 +996,7 @@ export const result = (props) => {
                 null,
                 e("img", {
                   src: `${randomToolNumForFull3[1].image}`,
+                  class: "lg:h-48 md:h-36 w-full object-cover object-center",
                 })
               ),
               e(
@@ -1024,6 +1034,7 @@ export const result = (props) => {
                 null,
                 e("img", {
                   src: `${randomToolNumForFull3[2].image}`,
+                  class: "lg:h-48 md:h-36 w-full object-cover object-center",
                 })
               ),
               e(
@@ -1168,6 +1179,7 @@ export const result = (props) => {
                 null,
                 e("img", {
                   src: `${randomToolNumForPart[0].image}`,
+                  class: "lg:h-48 md:h-36 w-full object-cover object-center",
                 })
               ),
               e(
@@ -1204,6 +1216,7 @@ export const result = (props) => {
                 null,
                 e("img", {
                   src: `${randomToolNumForPart[1].image}`,
+                  class: "lg:h-48 md:h-36 w-full object-cover object-center",
                 })
               ),
               e(
@@ -1240,6 +1253,7 @@ export const result = (props) => {
                 null,
                 e("img", {
                   src: `${randomToolNumForPart[2].image}`,
+                  class: "lg:h-48 md:h-36 w-full object-cover object-center",
                 })
               ),
               e(
