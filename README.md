@@ -100,7 +100,6 @@ users ||--o| profiles : has_one
   profiles {
     int id PK
     int user_id FK
-    int tool_id FK
     string avatar
     int house_age
     int house_floor
