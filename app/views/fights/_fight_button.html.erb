@@ -1,6 +1,7 @@
 <div class="stats bg-primary text-primary-content w-screen">
   <div class="stat text-center">
     <div class="stat-title">現在退治中のユーザー</div>
+    <div class="stat-title"><div class="badge badge-info animate-pulse">リアルタイム表示中</div></div>
     <div id="fights" class="stat-value"><%=Fight.not_done.count%>人</div>
     <div class="stat-actions">
       <% if current_user.fights.where(status: 1).present? %>
