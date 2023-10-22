@@ -1,25 +1,21 @@
 <%= search_form_for q, url: url do |f| %>
-  <div class="join flex justify-center mt-2">
-    <div>
-      <div>
-        <%= f.search_field :title_or_body_or_user_name_cont, class: 'input input-bordered join-item', placeholder: t('defaults.search_word') %>
-      </div>
-    </div>
+  <div class="join text-center">
+    <%= f.search_field :title_or_body_or_user_name_cont, class: 'input input-bordered input-primary w-full max-w-xs join-item', placeholder: t('defaults.search_word') %>
     <%= f.select :post_types_eq, Post.post_types_i18n.invert.map{|key, value| [key, Post.post_types[value]]},
         { include_blank: t('defaults.post_types') },
-        { class: 'select select-bordered join-item' }  %>
+        { class: 'select select-primary w-full max-w-xs join-item' }  %>
     <%= f.select :user_profile_house_structure_eq, Profile.house_structures_i18n.invert.map{|key, value| [key, Profile.house_structures[value]]},
         { include_blank: t('defaults.house_structure') },
-        { class: 'select select-bordered join-item' }  %>
+        { class: 'select select-primary w-full max-w-xs join-item' }  %>
     <%= f.number_field :user_profile_house_age_eq,
-        class: 'input input-bordered join-item',
+        class: 'input input-bordered input-primary w-full max-w-xs join-item',
         placeholder: t('defaults.house_age')  %>
     <%= f.number_field :user_profile_house_floor_eq,
-        class: 'input input-bordered join-item',
+        class: 'input input-bordered input-primary w-full max-w-xs join-item',
         placeholder: t('defaults.house_floor')  %>
     </select>
     <div class="indicator">
-      <%= f.submit  class: 'btn bg-natural join-item' %>
+      <%= f.submit  class: 'btn btn-primary join-item w-full' %>
     </div>
   </div>
 <% end %>

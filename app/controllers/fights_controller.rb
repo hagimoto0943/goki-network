@@ -1,12 +1,12 @@
 class FightsController < ApplicationController
 
   def create
+    @fights_progress = Fight.not_done
     @fight = current_user.fights.new
     if @fight.save
       ActionCable.server.broadcast(
         'some_channel', {
-          name: @fight.user.name,
-          created_at: @fight.created_at.strftime('%Y/%m/%d %H:%M')
+          count: @fights_progress.count
         }
       )
       redirect_to posts_path, success: t('.success')
@@ -18,8 +18,13 @@ class FightsController < ApplicationController
 
   def update
     @fight = current_user.fights.find_by(status: 1)
-    @fights = Fight.where(status: 1).includes(:user).order(created_at: :desc)
+    @fights_progress = Fight.not_done
     if @fight.toggle_status!
+      ActionCable.server.broadcast(
+        'some_channel', {
+          count: @fights_progress.count
+        }
+      )
       redirect_to posts_path, success: t('.success')
     else
       flash.now[:error] = t('.fail')
