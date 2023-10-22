@@ -1,0 +1,13 @@
+<div class="stats bg-primary text-primary-content w-screen">
+  <div class="stat text-center">
+    <div class="stat-title">現在退治中のユーザー</div>
+    <div id="fights" class="stat-value"><%=Fight.not_done.count%>人</div>
+    <div class="stat-actions">
+      <% if current_user.fights.where(status: 1).present? %>
+        <%= button_to t('defaults.fight_off'), fight_path(current_user), method: :patch, class: "btn btn-sm btn-error" %>
+      <% else %>
+        <%= button_to t('defaults.fight_on'), fights_path, method: :post , class: "btn btn-sm btn-success" %>
+      <% end %>
+    </div>
+  </div>
+</div>

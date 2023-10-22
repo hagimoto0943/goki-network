@@ -1,87 +1,88 @@
-<div class="hero min-h-screen bg-base-200">
-  <div class="hero-content flex-col lg:flex-row-reverse">
-    <%= image_tag 'goki_2.png', class: "max-w-sm rounded-lg " %>
-    <div>
-      <h1 class="text-5xl font-bold">Goki.netへようこそ！</h1>
-      <p class="py-6">仲間とリアルタイムで繋がり、害虫を克服しましょう。</p>
-        <% unless logged_in? %>
-          <%= render 'guest_login_button' %>
-        <% end %>
-    </div>
-  </div>
-</div>
-<h2 class = "text-3xl font-bold bg-base-200 text-center py-6">使用方法</h2>
-<div class="hero min-h-screen bg-base-200">
-  <div class="hero-content flex-col lg:flex-row-reverse">
-    <div>
-      <h1 class="text-5xl font-bold">自分に合った対策を診断しましょう</h1>
-      <p class="py-6">自分の家の対策大丈夫ですか？自分の家にあった対策を診断アプリをつかって知りましょう</p>
-      <%= link_to '自分の家を診断する', explanation_path, class: "btn btn-natural" %>
-    </div>
-    <div class="mockup-phone">
-      <div class="camera"></div>
-      <div class="display">
-        <div class="artboard artboard-demo phone-1">
-          <div>
-            <p class = "text-center my-2">質問1/13</p>
-            <h1 class="card-title title-font text-lg font-medium text-gray-900 mb-3">家の周りに飲食店はありますか？</h1>
-            <div class = "flex justify-center">
-              <button class = "btn btn-neutral mx-2">はい</button>
-              <button class = "btn btn-neutral mx-2">いいえ</button>
-            </div>
-          </div>
-        </div>
+
+  <div class="hero min-h-screen bg-base-200 w-screen">
+    <div class="hero-content flex-col lg:flex-row-reverse">
+      <%= image_tag 'goki_2.png', class: "rounded-lg"%>
+      <div>
+        <h1 class="text-5xl font-bold">Goki.netへようこそ！</h1>
+        <p class="py-6">仲間とリアルタイムで繋がり、害虫を克服しましょう。</p>
+          <% unless logged_in? %>
+            <%= render 'guest_login_button' %>
+          <% end %>
       </div>
     </div>
   </div>
-</div>
-<div class="hero min-h-screen bg-base-200">
-  <div class="hero-content flex-col lg:flex-row-reverse">
-    <div class="mockup-phone">
-      <div class="camera"></div>
-      <div class="display">
-        <div class="artboard artboard-demo phone-1">
-          <div>
-            <div class="card h-full bg-base-100 rounded-lg overflow-hidden">
-              <figure><%= image_tag 'bug_gokiburi.png', class: "lg:h-48 md:h-36 w-full object-cover object-center" %></figure>
-              <div class="card-body p-6">
-                <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"><%= l Time.now %></h2>
-                  <h1 class="card-title title-font text-lg font-medium text-gray-900 mb-3">
-                    ブラックキャップ
-                  </h1>
-                  <div class="badge badge-info">予防</div>
-                  <div class="card-actions justify-between">
-                    <div class="badge badge-lg badge-neutral">ゴキちゃん</div>
-                    <i class="fa-solid fa-heart" style="color: #e90c0c;"></i>
-                  </div>
+  <h2 class = "text-3xl font-bold bg-base-200 text-center py-6">使用方法</h2>
+  <div class="hero min-h-screen bg-base-200 w-screen">
+    <div class="hero-content flex-col lg:flex-row-reverse">
+      <div>
+        <h1 class="text-5xl font-bold">自分に合った対策を診断しましょう</h1>
+        <p class="py-6">自分の家の対策大丈夫ですか？自分の家にあった対策を診断アプリをつかって知りましょう</p>
+        <%= link_to '自分の家を診断する', explanation_path, class: "btn btn-primary" %>
+      </div>
+      <div class="mockup-phone">
+        <div class="camera"></div>
+        <div class="display">
+          <div class="artboard artboard-demo phone-1">
+            <div>
+              <p class = "text-center my-2">質問1/13</p>
+              <h1 class="card-title title-font text-lg font-medium text-gray-900 mb-3">家の周りに飲食店はありますか？</h1>
+              <div class = "flex justify-center">
+                <button class = "btn btn-primary mx-2">はい</button>
+                <button class = "btn btn-primary mx-2">いいえ</button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div>
-      <h1 class="text-5xl font-bold">害虫対策をシェアしましょう</h1>
-      <p class="py-6">あなたが普段している害虫の予防、駆除の方法や、使用している対策グッズを皆でシェアしましょう。</p>
-      <%= link_to '害虫対策一覧ページへ', posts_path, class: "btn btn-natural" %>
+  </div>
+  <div class="hero min-h-screen bg-base-200 w-screen">
+    <div class="hero-content flex-col lg:flex-row-reverse">
+      <div class="mockup-phone">
+        <div class="camera"></div>
+        <div class="display">
+          <div class="artboard artboard-demo phone-1">
+            <div>
+              <div class="card h-full bg-base-100 rounded-lg overflow-hidden">
+                <figure><%= image_tag 'bug_gokiburi.png', class: "lg:h-48 md:h-36 w-full object-cover object-center" %></figure>
+                <div class="card-body p-6">
+                  <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"><%= l Time.now %></h2>
+                    <h1 class="card-title title-font text-lg font-medium text-gray-900 mb-3">
+                      ブラックキャップ
+                    </h1>
+                    <div class="badge badge-info">予防</div>
+                    <div class="card-actions justify-between">
+                      <div class="badge badge-lg badge-primary">ゴキちゃん</div>
+                      <i class="fa-solid fa-heart" style="color: #e90c0c;"></i>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h1 class="text-5xl font-bold">害虫対策をシェアしましょう</h1>
+        <p class="py-6">あなたが普段している害虫の予防、駆除の方法や、使用している対策グッズを皆でシェアしましょう。</p>
+        <%= link_to '害虫対策一覧ページへ', posts_path, class: "btn btn-primary" %>
+      </div>
     </div>
   </div>
-</div>
-<div class="hero min-h-screen bg-base-200">
-  <div class="hero-content flex-col lg:flex-row-reverse">
-    <div>
-      <h1 class="text-5xl font-bold">仲間とリアルタイムで繋がりましょう</h1>
-      <p class="py-6">害虫を発見したら、「退治開始」ボタンを押しましょう。</br>駆除中の仲間と繋がることで害虫への恐怖心が和らぎます。</p>
-      <%= link_to '駆除中の仲間を見る', posts_path, class: "btn btn-natural" %>
-    </div>
-    <div class="mockup-phone">
-      <div class="camera"></div>
-      <div class="display">
-        <div class="artboard artboard-demo phone-1">
-          <%= button_to t('defaults.fight_on'), '#', class: "btn btn-lg btn-neutral w-32 h-32 bottom-10 start-10 m-5 text-white bg-accent border-4 border-accent-focus py-4 px-8 focus:outline-none hover:bg-amber-700 rounded-full text-xl" %>
-          <i class="fa-solid fa-arrow-pointer fa-2xl"></i>
+  <div class="hero min-h-screen bg-base-200 w-screen">
+    <div class="hero-content flex-col lg:flex-row-reverse">
+      <div>
+        <h1 class="text-5xl font-bold">仲間とリアルタイムで繋がりましょう</h1>
+        <p class="py-6">害虫を発見したら、「退治開始」ボタンを押しましょう。</br>駆除中の仲間と繋がることで害虫への恐怖心が和らぎます。</p>
+        <%= link_to '駆除中の仲間を見る', posts_path, class: "btn btn-primary" %>
+      </div>
+      <div class="mockup-phone">
+        <div class="camera"></div>
+        <div class="display">
+          <div class="artboard artboard-demo phone-1">
+            <%= button_to t('defaults.fight_on'), '#', class: "btn btn-lg btn-primary w-32 h-32 bottom-10 start-10 m-5 text-white border-4 border-accent-focus py-4 px-8 focus:outline-none" %>
+            <i class="fa-solid fa-arrow-pointer fa-2xl"></i>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>

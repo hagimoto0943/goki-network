@@ -114,7 +114,7 @@ export const top = (props) => {
         e(
           "button",
           {
-            className: "btn btn-neutral",
+            className: "btn btn-primary",
             onClick: () => props.onClick("questions"),
           },
           "スタート"
@@ -436,7 +436,7 @@ export const questions = (props) => {
           e(
             "button",
             {
-              className: "btn btn-neutral m-2",
+              className: "btn btn-primary m-2",
               onClick: () => onClickHandler(currentQuestion.choices[choice]),
             },
             `${currentQuestion.choices[choice]}`
@@ -624,7 +624,7 @@ export const result = (props) => {
                   e(
                     "a",
                     {
-                      className: "btn btn-lg btn-neutral-focus",
+                      className: "btn btn-lg btn-primary",
                       href: `${props.tool.tool.product_path}`,
                     },
                     "さっそく害虫対策を投稿する"
@@ -1128,7 +1128,7 @@ export const result = (props) => {
                   e(
                     "a",
                     {
-                      className: "btn btn-lg btn-neutral-focus",
+                      className: "btn btn-lg btn-primary",
                       href: `${props.tool.tool.product_path}`,
                     },
                     "さっそく害虫対策を投稿する"

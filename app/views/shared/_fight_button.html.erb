@@ -1,7 +1,0 @@
-  <div>
-    <% if current_user.fights.where(status: 1).present? %>
-      <%= button_to t('defaults.fight_off'), fight_path(current_user), method: :patch, class: "btn btn-lg btn-neutral mx-4 w-32 h-32 fixed bottom-10 start-10 z-50 m-5 text-white bg-accent border-4 border-accent-focus py-4 px-8 focus:outline-none hover:bg-amber-700 rounded-full text-xl" %>
-    <% else %>
-      <%= button_to t('defaults.fight_on'), fights_path, method: :post , class: "btn btn-lg btn-neutral mx-4  w-32 h-32 fixed bottom-10 start-10 z-50 m-5 text-white bg-accent border-4 border-accent-focus py-4 px-8 focus:outline-none hover:bg-amber-700 rounded-full text-xl " %>
-    <% end %>
-  </div>

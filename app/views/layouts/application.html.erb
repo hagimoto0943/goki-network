@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-theme="autumn">
+<html data-theme="bumblebee">
   <head>
     <title><%= page_title(yield(:title)) %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -16,9 +16,9 @@
   </head>
   <body>
     <%= render logged_in? ? 'shared/header' : 'shared/before_login_header' %>
-    <%= render 'shared/fight_button' if logged_in? %>
-    <%= render 'shared/content_button'%>
     <%= render 'shared/flash_message' %>
+    <%= render 'fights/fight_button' if logged_in? %>
+    <%= render 'shared/content_button' if logged_in? %>
     <%= yield %>
     <%= render 'shared/footer'%>
   </body>

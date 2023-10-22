@@ -10,5 +10,5 @@
 <% if page.current? %>
     <%= link_to_if page.current?, page, url, {remote: remote, rel: page.rel, class: "join-item btn btn-disabled" } %>
 <% else %>
-    <%= link_to_unless page.current?, page, url, {remote: remote, rel: page.rel, class: "join-item btn-neutral btn" } %>
+    <%= link_to_unless page.current?, page, url, {remote: remote, rel: page.rel, class: "join-item btn-primary btn" } %>
 <% end %>
