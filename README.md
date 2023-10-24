@@ -1,4 +1,4 @@
-# Pest.net
+# Goki.net
 
 ## サービス概要
 
