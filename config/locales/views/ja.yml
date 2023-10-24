@@ -23,6 +23,8 @@ ja:
     house_age: "築年数"
     house_structure: "家の構造"
     post_types: "駆除or予防"
+    insect_types: "害虫の種類"
+    places: "見つけた場所"
   users:
     new:
       welcome: "会員登録して害虫を克服しましょう。"

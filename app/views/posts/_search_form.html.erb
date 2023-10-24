@@ -4,6 +4,12 @@
     <%= f.select :post_types_eq, Post.post_types_i18n.invert.map{|key, value| [key, Post.post_types[value]]},
         { include_blank: t('defaults.post_types') },
         { class: 'select select-primary w-full max-w-xs join-item' }  %>
+    <%= f.select :insect_types_eq, Post.insect_types_i18n.invert.map{|key, value| [key, Post.insect_types[value]]},
+        { include_blank: t('defaults.insect_types') },
+        { class: 'select select-primary w-full max-w-xs join-item' }  %>
+    <%= f.select :places_eq, Post.places_i18n.invert.map{|key, value| [key, Post.places[value]]},
+        { include_blank: t('defaults.places') },
+        { class: 'select select-primary w-full max-w-xs join-item' }  %>
     <%= f.select :user_profile_house_structure_eq, Profile.house_structures_i18n.invert.map{|key, value| [key, Profile.house_structures[value]]},
         { include_blank: t('defaults.house_structure') },
         { class: 'select select-primary w-full max-w-xs join-item' }  %>

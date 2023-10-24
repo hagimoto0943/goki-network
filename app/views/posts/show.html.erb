@@ -4,14 +4,16 @@
     <div class="lg:w-4/5 mx-auto flex flex-wrap">
       <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
         <h2 class="text-sm title-font text-gray-500 tracking-widest"><%= l @post.created_at %></h2>
-        <div class = "flex justify-between">
+        <div class = "md:flex md:justify-between">
           <h1 class="text-gray-900 text-3xl title-font font-medium mb-4"><%= @post.title %></h1>
-          <h1 class="flex text-gray-900 textmd title-font font-medium mb-4">
+          <h1 class="text-gray-900 textmd title-font font-medium mb-4">
             <% if @post.post_types == "prevention" %>
-              <span class="bg-blue-200 text-blue-800 text-lg font-medium mr-2 px-2.5 py-0.5 rounded-full"><%= @post.post_types_i18n %></span>
+              <span class="badge badge-info badge-lg"><%= @post.post_types_i18n %></span>
             <% else %>
-              <span class="bg-pink-100 text-pink-800 text-lg font-medium mr-2 px-2.5 py-0.5 rounded-full"><%= @post.post_types_i18n %></span>
+              <span class="badge badge-error badge-lg"><%= @post.post_types_i18n %></span>
             <% end %>
+            <span class="badge badge-success badge-lg"><%= @post.insect_types_i18n %></span>
+            <span class="badge badge-primary badge-lg"><%= @post.places_i18n %></span>
             <% if current_user == @post.user %>
               <%= link_to edit_post_path do %>
                 <i class="fa-solid fa-pen-to-square mx-2"></i>

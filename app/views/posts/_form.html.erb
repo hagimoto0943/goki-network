@@ -10,36 +10,48 @@
           <div class="form-control p-2 w-full">
             <div class="relative">
               <%= f.label :title, class: "label" %>
-              <%= f.text_field :title, class: "input input-bordered input-accent w-full max-w-3xl focus:border-yellow-500 focus:outline-none focus:ring-6" %>
+              <%= f.text_field :title, class: "input input-bordered input-secondary w-full max-w-3xl " %>
             </div>
           </div>
           <div class="form-control p-2 w-full">
             <div class="relative">
               <%= f.label :body, class: "label" %>
-              <%= f.text_area :body, class: "textarea textarea-accent w-full h-32 max-w-3xl focus:border-yellow-500 focus:outline-none focus:ring-6" %>
+              <%= f.text_area :body, class: "textarea textarea-secondary w-full h-32 max-w-3xl " %>
             </div>
           </div>
           <div class="form-control p-2 w-1/2">
             <div class="relative text-center">
-              <%= f.radio_button :post_types, Post.post_types.key(0), class: "radio radio-accent checked" %>
+              <%= f.radio_button :post_types, Post.post_types.key(0), class: "radio radio-secondary checked" %>
               <%= f.label :post_types, Post.post_types_i18n[:destruction], class: "leading-7 text-sm text-gray-600" %>
             </div>
           </div>
           <div class="form-control p-2 w-1/2">
             <div class="relative text-center">
-              <%= f.radio_button :post_types, Post.post_types.key(1), class: "radio radio-accent" %>
+              <%= f.radio_button :post_types, Post.post_types.key(1), class: "radio radio-secondary" %>
               <%= f.label :post_types, Post.post_types_i18n[:prevention], class: "leading-7 text-sm text-gray-600" %>
+            </div>
+          </div>
+          <div class="form-control p-2 w-1/2">
+            <div class="relative text-center">
+              <%= f.label :insect_types, class: "label" %>
+              <%= f.select :insect_types, Post.insect_types.keys.map {|k| [t("enums.post.insect_types.#{k}"), k]}, { include_blank: "指定なし" }, {class: "select select-secondary w-full max-w-xs"} %>
+            </div>
+          </div>
+          <div class="form-control p-2 w-1/2">
+            <div class="relative text-center">
+              <%= f.label :places, class: "label" %>
+              <%= f.select :places, Post.places.keys.map {|k| [t("enums.post.places.#{k}"), k]}, { include_blank: "指定なし" }, {class: "select select-secondary w-full max-w-xs"} %>
             </div>
           </div>
           <div class="form-control p-2 w-full">
             <div class="relative">
               <%= f.label :thumbnail, class: "label" %>
-              <%= f.file_field :thumbnail, accept: 'image/*', class: "file-input file-input-bordered file-input-accent w-full max-w-xs" %>
+              <%= f.file_field :thumbnail, accept: 'image/*', type: "file", class: "file-input file-input-bordered file-input-primary w-full max-w-xs" %>
               <%= f.hidden_field :thumbnail_cache %>
             </div>
           </div>
           <div class="form-control p-2 mx-auto">
-            <button class="btn btn-primary">
+            <button class="btn btn-secondary">
               <%= f.submit %>
             </button>
           </div>

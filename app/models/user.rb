@@ -53,4 +53,5 @@ class User < ApplicationRecord
       )
       return guest_user
   end
+
 end
