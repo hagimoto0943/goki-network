@@ -1,0 +1,20 @@
+<tr>
+  <th>
+    <% if fight.user.profile %>
+      <%= image_tag fight.user.profile.avatar.url, class: "w-10 h-10 rounded-full" %>
+    <% else %>
+      <i class="fa-solid fa-user w-5 h-5 rounded-full p-4 mx-2 bg-neutral-400"></i>
+    <% end %>
+  </th>
+  <td><%= fight.user.name %></td>
+  <td><%= l fight.created_at %></td>
+  <td><%= l fight.updated_at %></td>
+  <td>
+    <% if fight.status == "done" %>
+      <div class="badge badge-warning"><%= fight.status_i18n %></div>
+    <% else %>
+      <div class="badge badge-success"><%= fight.status_i18n %></div>
+    <% end %>
+  </td>
+  <td><%= render 'fights/support_button', {fight: fight} %></td>
+</tr>
