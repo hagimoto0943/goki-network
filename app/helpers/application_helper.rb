@@ -1,16 +1,16 @@
 module ApplicationHelper
   def page_title(page_title = '')
-    base_title = 'Pest.net'
+    base_title = 'Goki.net'
     page_title.empty? ? base_title : "#{page_title} | #{base_title}"
   end
   def default_meta_tags
     {
-      site: 'Pest.net',
+      site: 'Goki.net',
       title: '虫嫌いのための害虫対策共有サービス',
       reverse: true,
       charset: 'utf-8',
-      description: 'Pest.netを使えばむ虫嫌いのあなたでも楽しく害虫対策、予防などができます。',
-      keywords: 'ゴキブリ,害虫,害虫対策',
+      description: 'Goki.netを使えばむ虫嫌いのあなたでも楽しく害虫対策、予防などができます。',
+      keywords: 'ゴキブリ,害虫,害虫対策,ムカデ,コバエ',
       canonical: request.original_url,
       separator: '|',
       og: {
