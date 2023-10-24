@@ -7,6 +7,24 @@ ja:
       post_types:
         destruction: "駆除"
         prevention: "予防"
+      insect_types:
+        all_insect: "全ての害虫"
+        mosquito: "蚊"
+        flies: "ハエ"
+        cockroach: "ゴキブリ"
+        tick: "ノミ・ダニ"
+        centipede: "ムカデ"
+        clothingPest: "衣類害虫"
+      places:
+        all_place: "全ての場所"
+        window: "窓付近"
+        entrance: "玄関付近"
+        kitchen: "キッチン"
+        toilet: "トイレ"
+        garden: "庭"
+        balcony: "ベランダ"
+        bath: "お風呂"
+        closet: "クローゼット・押し入れ"
     profile:
       house_structure:
         wooden: "木造"

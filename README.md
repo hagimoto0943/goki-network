@@ -108,11 +108,12 @@ users ||--o| profiles : has_one
   posts {
     int id PK
     int user_id FK
-    int insect_type_id FK
     string title
     string body
     string thumbnail
     int post_types
+    int insect_types
+    int place
     datetime created_at
     datetime updated_at
   }

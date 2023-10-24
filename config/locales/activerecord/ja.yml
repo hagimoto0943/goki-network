@@ -17,6 +17,8 @@ ja:
         body: "本文"
         thumbnail: "画像"
         post_types: "投稿タイプ"
+        insect_types: " 害虫の種類"
+        places: "見つけた場所"
       fight:
         status: "退治状況"
       profile:
