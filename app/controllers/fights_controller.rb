@@ -1,4 +1,7 @@
 class FightsController < ApplicationController
+  def index
+    @fights = Fight.includes(:user).order(created_at: :desc).limit(10)
+  end
 
   def create
     @fights_progress = Fight.not_done
@@ -9,7 +12,7 @@ class FightsController < ApplicationController
           count: @fights_progress.count
         }
       )
-      redirect_to posts_path, success: t('.success')
+      redirect_back fallback_location: posts_path, success: t('.success')
     else
       flash.now[:error] = t('.fail')
       render :index
@@ -25,7 +28,7 @@ class FightsController < ApplicationController
           count: @fights_progress.count
         }
       )
-      redirect_to posts_path, success: t('.success')
+      redirect_back fallback_location: posts_path, success: t('.success')
     else
       flash.now[:error] = t('.fail')
       render :index

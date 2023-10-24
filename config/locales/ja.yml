@@ -30,3 +30,7 @@ ja:
         wooden: "木造"
         reinforced_concrete: "鉄筋コンクリート"
         steel_frame: "簡易鉄骨"
+    fight:
+      status:
+        done: "退治完了"
+        progress: "退治中"

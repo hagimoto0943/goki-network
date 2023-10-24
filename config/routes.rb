@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     end
   end
   resources :likes, only: %i[create destroy]
-  resources :fights, only: %i[create update] do
+  resources :fights, only: %i[index create update] do
     collection do
       get 'support'
     end

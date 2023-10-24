@@ -1,0 +1,27 @@
+<div class="overflow-x-auto">
+  <table class="table table-xl mx-auto my-4">
+    <thead>
+      <tr>
+        <th></th>
+        <th>ユーザー名</th>
+        <th>退治開始日</th>
+        <th>退治終了日</th>
+        <th>ステータス</th>
+        <th>応援</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @fights %>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th></th>
+        <th>ユーザー名</th>
+        <th>対し開始日</th>
+        <th>退治終了日</th>
+        <th>ステータス</th>
+        <th>応援</th>
+      </tr>
+    </tfoot>
+  </table>
+</div>
