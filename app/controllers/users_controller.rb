@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: %i[new create]
+  before_action :set_user, only: %i[edit update destroy]
 
   def new
     @user = User.new
   end
 
   def edit
-    @user = User.find(current_user.id)
   end
 
   def create
@@ -20,7 +20,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(current_user.id)
     if @user.update(user_params)
       redirect_to profile_path(user_id: current_user.id), success: t('.success')
     else
@@ -30,12 +29,15 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(current_user.id)
     @user.destroy!
     redirect_to root_path, success: t('.success')
   end
 
   private
+
+  def set_user
+    @user = User.find(current_user.id)
+  end
 
   def user_params
     params.require(:user).permit(
