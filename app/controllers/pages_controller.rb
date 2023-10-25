@@ -15,5 +15,4 @@ class PagesController < ApplicationController
 
   def explanation
   end
-
 end
