@@ -6,7 +6,7 @@ import index from "components/index";
 // Connects to data-controller="react"
 export default class extends Controller {
   connect() {
-    console.log("コネクト成功");
+    // console.log("コネクト成功");
 
     const e = React.createElement;
     const root = document.getElementById("root");
