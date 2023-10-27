@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Fight, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "#create" do
+    it "statusはprogressのみ登録できる" do
+      fight = build(:fight, status: 0)
+      fight.valid?
+    end
+  end
 end
