@@ -106,6 +106,8 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+# enumのテストに使用
+  gem "shoulda-matchers", '~> 5.0'
 end
 
 group :production do
