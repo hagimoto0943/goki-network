@@ -45,13 +45,11 @@ class User < ApplicationRecord
 
   def self.guest_create
     random_value = SecureRandom.hex.to_s
-      guest_user = User.create!(
-        name: 'ゲスト',
-        email: "test_#{random_value}@example.com",
-        password: random_value,
-        password_confirmation: random_value
-      )
-      return guest_user
+    User.create!(
+      name: 'ゲスト',
+      email: "test_#{random_value}@example.com",
+      password: random_value,
+      password_confirmation: random_value
+    )
   end
-
 end
