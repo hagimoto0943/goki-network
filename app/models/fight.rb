@@ -4,7 +4,7 @@ class Fight < ApplicationRecord
 
   enum :status, { done: 0, progress: 1 }
 
-  scope :timeout_status, -> { where('created_at < ?', Time.now - 120 * 60)}
+  scope :timeout_status, -> { where('created_at < ?', Time.now - 120 * 60) }
 
   def toggle_status!
     done! if progress?
