@@ -1,7 +1,7 @@
 <div class = "invisible md:visible fixed bottom-10 start-10 z-50 m-5 mx-4">
   <% unless current_user.profile %>
-    <div class="tooltip tooltip-open tooltip-right tooltip-info" data-tip="プロフィールを登録すると「家屋のタイプ」,「築年数」,「階数」やご自身のアバターを登録できるようになります！">
-      <%= link_to "プロフィールを登録する", new_profile_path, class: "btn btn-secondary" %>
+    <div class="tooltip tooltip-info mx-4" data-tip="プロフィールを登録すると「家屋のタイプ」,「築年数」,「階数」やご自身のアバターを登録できるようになります！">
+      <%= link_to "プロフィールを登録する", new_profile_path, class: "btn btn-secondary m-4" %>
     </div>
   <% end %>
 </div>
