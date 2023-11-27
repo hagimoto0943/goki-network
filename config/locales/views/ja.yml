@@ -79,7 +79,11 @@ ja:
       fail: "プロフィールの作成に失敗しました"
   fights:
     index:
-      title: "退治中のユーザー"
+      user_name: "ユーザー名"
+      started: "退治開始日"
+      ended: "退治終了日"
+      status: "ステータス"
+      fight: "応援"
     create:
       success: "退治開始!!!!"
       fail: "退治の開始に失敗しました"
