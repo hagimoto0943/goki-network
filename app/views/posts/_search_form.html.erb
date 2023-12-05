@@ -2,8 +2,8 @@
   <div class="join text-center">
     <%= f.search_field :title_or_body_or_user_name_cont, class: 'input input-bordered input-primary w-full max-w-xs join-item', placeholder: t('defaults.search_word') %>
     <%= f.select :post_types_eq, Post.post_types_i18n.invert.map{|key, value| [key, Post.post_types[value]]},
-        { include_blank: t('defaults.post_types') },
-        { class: 'select select-primary w-full max-w-xs join-item' }  %>
+      { include_blank: t('defaults.post_types') },
+      { class: 'select select-primary w-full max-w-xs join-item' }  %>
     <%= f.select :insect_types_eq, Post.insect_types_i18n.invert.map{|key, value| [key, Post.insect_types[value]]},
         { include_blank: t('defaults.insect_types') },
         { class: 'select select-primary w-full max-w-xs join-item' }  %>
@@ -13,15 +13,85 @@
     <%= f.select :user_profile_house_structure_eq, Profile.house_structures_i18n.invert.map{|key, value| [key, Profile.house_structures[value]]},
         { include_blank: t('defaults.house_structure') },
         { class: 'select select-primary w-full max-w-xs join-item' }  %>
-    <%= f.number_field :user_profile_house_age_eq,
-        class: 'input input-bordered input-primary w-full max-w-xs join-item',
-        placeholder: t('defaults.house_age')  %>
-    <%= f.number_field :user_profile_house_floor_eq,
-        class: 'input input-bordered input-primary w-full max-w-xs join-item',
-        placeholder: t('defaults.house_floor')  %>
-    </select>
+  </div>
+  <div class = "text-center mx-auto w-full md:flex lg:flex-col justify-center">
+    <div class="max-w-xs mx-4 md:w-full md:max-w-full">
+      <h3 class="font-semibold text-gray-900 ml-2">築年数</h3>
+      <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg lg:flex">
+        <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
+          <div class="flex items-center ps-3">
+            <%= f.radio_button :user_profile_house_age_between, "", class: "radio radio-secondary checked", id: "horizontal-list-radio-license"%>
+            <label for="horizontal-list-radio-license" class="w-full py-3 ms-2 text-sm font-medium text-gray-900">指定なし</label>
+          </div>
+        </li>
+        <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
+          <div class="flex items-center ps-3">
+              <%= f.radio_button :user_profile_house_age_between, "1,5", class: "radio radio-secondary checked", id: "horizontal-list-radio-license"%>
+              <label for="horizontal-list-radio-id" class="w-full py-3 ms-2 text-sm font-medium text-gray-900">1〜5年</label>
+          </div>
+        </li>
+        <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
+          <div class="flex items-center ps-3">
+              <%= f.radio_button :user_profile_house_age_between, "6,10", class: "radio radio-secondary checked", id: "horizontal-list-radio-license"%>
+              <label for="horizontal-list-radio-military" class="w-full py-3 ms-2 text-sm font-medium text-gray-900">6〜10年</label>
+          </div>
+        </li>
+        <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
+          <div class="flex items-center ps-3">
+              <%= f.radio_button :user_profile_house_age_between, "11,20", class: "radio radio-secondary checked", id: "horizontal-list-radio-license"%>
+              <label for="horizontal-list-radio-military" class="w-full py-3 ms-2 text-sm font-medium text-gray-900">11〜20年</label>
+          </div>
+        </li>
+        <li class="w-full">
+          <div class="flex items-center ps-3">
+            <%= f.radio_button :user_profile_house_age_between, "21,200", class: "radio radio-secondary checked", id: "horizontal-list-radio-license"%>
+            <label for="horizontal-list-radio-passport" class="w-full py-3 ms-2 text-sm font-medium text-gray-900">21年以上</label>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="max-w-xs mx-4 md:w-full md:max-w-full">
+      <h3 class="font-semibold text-gray-900 ml-2">家の階数</h3>
+      <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg lg:flex ">
+        <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
+          <div class="flex items-center ps-3">
+            <%= f.radio_button :user_profile_house_floor_between, "", class: "radio radio-secondary checked", id: "horizontal-list-radio-license"%>
+            <label for="horizontal-list-radio-license" class="w-full py-3 ms-2 text-sm font-medium text-gray-900">指定なし</label>
+          </div>
+        </li>
+        <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
+          <div class="flex items-center ps-3">
+              <%= f.radio_button :user_profile_house_floor_between, "1,1", class: "radio radio-secondary checked", id: "horizontal-list-radio-license"%>
+              <label for="horizontal-list-radio-id" class="w-full py-3 ms-2 text-sm font-medium text-gray-900">1階</label>
+          </div>
+        </li>
+        <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
+          <div class="flex items-center ps-3">
+              <%= f.radio_button :user_profile_house_floor_between, "2,2", class: "radio radio-secondary checked", id: "horizontal-list-radio-license"%>
+              <label for="horizontal-list-radio-military" class="w-full py-3 ms-2 text-sm font-medium text-gray-900">2階</label>
+          </div>
+        </li>
+        <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r">
+          <div class="flex items-center ps-3">
+              <%= f.radio_button :user_profile_house_floor_between, "3,5", class: "radio radio-secondary checked", id: "horizontal-list-radio-license"%>
+              <label for="horizontal-list-radio-military" class="w-full py-3 ms-2 text-sm font-medium text-gray-900">3〜5階</label>
+          </div>
+        </li>
+        <li class="w-full">
+          <div class="flex items-center ps-3">
+            <%= f.radio_button :user_profile_house_floor_between, "6,200", class: "radio radio-secondary checked", id: "horizontal-list-radio-license"%>
+            <label for="horizontal-list-radio-passport" class="w-full py-3 ms-2 text-sm font-medium text-gray-900">6階以上</label>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
   <div class="text-center my-2">
     <%= f.submit  class: 'btn btn-primary w-1/3' %>
   </div>
+
+
+
+
+
 <% end %>
