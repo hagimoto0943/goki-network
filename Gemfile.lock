@@ -408,10 +408,12 @@ DEPENDENCIES
   factory_bot_rails
   faker
   fog-aws
+  image_processing (~> 1.2)
   importmap-rails
   jbuilder
   kaminari
   meta-tags
+  mini_magick
   mysql2
   nokogiri
   open-uri

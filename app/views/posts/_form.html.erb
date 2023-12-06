@@ -49,6 +49,7 @@
               <%= f.file_field :thumbnail, accept: 'image/*', type: "file", class: "file-input file-input-bordered file-input-primary w-full max-w-xs" %>
               <%= f.hidden_field :thumbnail_cache %>
             </div>
+            <%= image_tag post.thumbnail.url, id: 'preview', size: '300x200' %>
           </div>
           <div class="form-control p-2 mx-auto">
             <button class="btn btn-secondary">
