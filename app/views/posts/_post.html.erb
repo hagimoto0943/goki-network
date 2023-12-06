@@ -1,4 +1,4 @@
-<div class="p-4 md:w-1/3 w-full">
+<div class="p-4 md:w-1/3 w-full z-0">
   <%= link_to post_path(post.id) do%>
     <div class="card card-compact bg-base-100 rounded-lg mx-auto overflow-hidden">
       <figure><%= image_tag post.thumbnail.url, class: "lg:h-48 md:h-36 w-hull object-contain object-center" %></figure>
@@ -16,11 +16,11 @@
           <div class="badge badge-success"><%= post.insect_types_i18n %></div>
           <div class="badge badge-secondary"><%= post.places_i18n %></div>
         </div>
+        <% end %>
         <div class="card-actions justify-between">
           <div class="badge badge-lg badge-outline badge-accent"><%=post.user.name%></div>
           <%= render 'like_button', post: post%>
         </div>
       </div>
     </div>
-  <% end %>
 </div>

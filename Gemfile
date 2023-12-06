@@ -60,6 +60,8 @@ gem 'cssbundling-rails'
 # 画像アップロード機能実装に使用
 gem 'carrierwave'
 gem 'fog-aws'
+gem "image_processing", "~> 1.2"
+gem 'mini_magick'
 # 楽天APIの使用
 gem 'rakuten_web_service'
 # 日本語化対応
